@@ -367,7 +367,142 @@ footer{
     width: 100%;
     height: 100%;
 }
+
+
+
+.avis {
+    height: auto;
+    min-height: 316px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #22234A;
+}
+
+.avis .avisContainer{
+    max-width: 960px;
+    color: white;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.avis .avisContainer .bold{
+    font-weight: 600;
+}
  
+.avis .avisContainer .avisContainerFlexbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.avis .avisContainer .avisContainerFlexbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.avis .avisContainer .avisContainerFlexbox img{
+    margin-top: 10px;
+}
+
+.avis .avisContainer .avisContainerFlexbox div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avis .avisContainer .avisContainerFlexbox div h6{
+    margin: 0%;
+    font-size: 18px;
+    font-weight: 300;
+
+}
+
+.avis .avisContainer .avisContainerFlexbox div p{
+    margin: 0%;
+    font-size: 16px;
+    font-weight: 300;
+    color: #9A9A9A;
+}
+
+
+
+.phone{
+    min-height: 712px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.phone .phoneContainer{
+    max-width: 960px;
+    display: flex;
+    flex-direction: row;
+}
+
+.phone .phoneContainer div{
+    padding-right: 64px;
+    margin-top: 32px;
+}
+
+.phone .phoneContainer div h2{
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+}
+
+.phone .phoneContainer div .highlight{
+    color: #004081;
+}
+
+.phone .phoneContainer div p{
+    font-size: 22px;
+    font-weight: 500;
+    text-align: justify;
+    margin-bottom: 32px;
+}
+
+.phone .phoneContainer div a{
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #22234A;
+    height: 80px;
+    width: 256px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2px;
+}
+
+.phone .phoneContainer div .miniTxt{
+    font-size: 14px;
+    font-weight: 500;
+    color: #004081;
+    margin-top: 8px;
+}
+
+.phone .phoneContainer img{
+    position: relative; /* Permet de déplacer l'image par rapport à sa position initiale */
+    top: -72px; /* Décale l'image de 20px vers le haut */
+}
+
+
 
 @media (max-width: 1320px) {
     .SectionText div{
@@ -475,6 +610,53 @@ footer{
 
     .banner{
         height: 468px;
+    }
+
+
+    .avis .avisContainer{
+        margin: 24px;
+    }
+
+
+    .phone{
+        min-height: 564px;
+        height: 560px;
+    }
+
+    .phoneContainer{
+        margin-top: 96px;
+    }
+    
+    .phone .phoneContainer div{
+        padding-right: 32px;
+        margin-left: 24px;
+        margin-top: 16px;
+    }
+    
+    .phone .phoneContainer div h2{
+        font-size: 24px;
+    }
+    
+    
+    .phone .phoneContainer div p{
+        font-size: 19px;
+        margin-bottom: 28px;
+    }
+    
+    .phone .phoneContainer div a{
+        font-size: 18px;
+        height: 60px;
+        width: 196px;
+    }
+    
+    .phone .phoneContainer div .miniTxt{
+        font-size: 13px;
+        margin-top: 6px;
+    }
+    
+    .phone .phoneContainer img{
+        top: -88px; /* Décale l'image de 20px vers le haut */
+        transform: scale(0.84);
     }
 }
 
@@ -630,6 +812,56 @@ footer{
 
     .banner{
         height: 320px;
+    }
+
+
+    .avis .avisContainer{
+        font-size: 16px;
+    }
+
+    .avis .avisContainer .avisContainerFlexbox div h6{
+        font-size: 16px;
+    }
+    
+    .avis .avisContainer .avisContainerFlexbox div p{
+        font-size: 14px;
+    }
+
+
+
+
+
+    .phone{
+        min-height: 564px;
+        height: auto;
+    }
+
+    .phone .phoneContainer{
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+    .phone .phoneContainer div{
+        padding-right: 0px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-top: 16px;
+    }
+    
+    .phone .phoneContainer div a{
+        margin-left: 32%;
+        margin-right: auto;
+    }
+    
+    .phone .phoneContainer div .miniTxt{
+        margin-left: 32%;
+    }
+    
+    .phone .phoneContainer img{
+        top: -88px; /* Décale l'image de 20px vers le haut */
+        width: 320px; /* Réduit la largeur de l'image à 75% de sa taille d'origine */
     }
 }
 
