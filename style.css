@@ -555,7 +555,173 @@ footer{
     min-height: 350px;
     width: 100%;
     background-color: white;
+    display: flex;
+    justify-content: center;
 }
+
+
+.aidesContainer{
+    height: auto;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+}
+
+.aidesContainer h2{
+    font-size: 28px;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.aidesContainer .highlight{
+    color: #004081;
+}
+
+.bar{
+    width: 100%;
+    height: 1px;
+    background-color: #0A7CFF;
+}
+
+.bar1{
+    width: 230px;
+    height: 1px;
+    background-color: #0A7CFF;
+}
+
+.aidesFlexboxContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 48px;
+}
+
+.aidestextContainer{
+    margin-left: 96px;
+    margin-top: 4px;
+}
+
+.aidestextContainer h3{
+    font-size: 24px;
+    color: black;
+    font-weight: 300;
+    margin: 4px;
+}
+
+.aidestextContainer .highlight{
+    font-weight: 600;
+    color: #004081;
+}
+
+.aidestextContainer p{
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+    text-align: justify;
+    margin: 24px;
+    margin-left: 0%;
+}
+
+.aidesVideoContainer {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    min-width: 380px;
+    height: 100%;
+}
+
+.aidesVideoContainer iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px; /* Arrondi des coins */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+}
+
+
+
+
+
+
+.logoAides {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid #ECECEC;
+}
+
+.logoAidesContainer {
+    max-width: 960px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 64px;
+}
+
+.logoAides div .tva{
+    width: 78px;
+}
+
+.logoAides div .anha{
+    width: 87px;
+}
+
+.logoAides div .mpr{
+    position: relative;
+    width: 72px;
+    top: -6px;
+}
+
+.logoAides div .tauxzero{
+    width: 57px;
+}
+
+
+.pompeChaleur{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pompeChaleur .aidesFlexboxContainer{
+    max-width: 1280px;
+    flex-direction: row;
+    margin: 24px;
+    margin-top: 64px;
+    align-items: flex-start;
+}
+
+.pompeChaleur .aidestextContainer{
+    margin-left: 0%;
+    margin-right: 96px;
+}
+
+.pompeChaleur .aidestextContainer p{
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+    text-align: justify;
+    margin: 24px;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.pompeChaleur .aidesVideoContainer {
+    height: 100%;
+    height: 350px;
+}
+
+
 
 @media (max-width: 1700px){
     .home{
@@ -769,7 +935,8 @@ footer{
     }
     
     .statsContainer{
-        margin: 24px;
+        margin-left: 48px;
+        margin-right: 48px;
     }
     
     .stats .statsContainer div{
@@ -787,6 +954,42 @@ footer{
         color: white;
         text-align: center;
         margin: 0%;
+    }
+
+
+
+    
+    .aidesContainer h2{
+        font-size: 24px;
+    }
+    
+    .aidestextContainer{
+        margin-left: 32px;
+        margin-top: 4px;
+    }
+    
+    .aidestextContainer h3{
+        font-size: 21px;
+    }
+    
+    .aidestextContainer p{
+        font-size: 17px;
+    }
+    
+    .aidesVideoContainer {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        min-width: 380px;
+        height: 90%;
+    }
+
+    .pompeChaleur .aidestextContainer{
+        margin-right: 32px;
+    }
+
+    .pompeChaleur .aidestextContainer p{
+        font-size: 17px;
     }
 }
 
@@ -1036,6 +1239,102 @@ footer{
         color: white;
         text-align: center;
         margin: 0%;
+    }
+
+
+
+    .aidesContainer{
+        margin-bottom: 0px;
+    }
+
+    .aidesContainer h2{
+        font-size: 24px;
+    }
+    
+    .aidestextContainer{
+        margin-left: 32px;
+        margin-top: 4px;
+    }
+
+    .aidesFlexboxContainer{
+        flex-direction: column-reverse;
+    }
+
+    .aidestextContainer{
+        margin: 0%;
+    }
+    
+    .aidestextContainer h3{
+        font-size: 21px;
+    }
+    
+    .aidestextContainer p{
+        font-size: 17px;
+        margin: 0%;
+        margin-top: 16px;
+    }
+    
+    .aidesVideoContainer {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        min-width: 340px;
+        height: 300px;
+        margin-bottom: 32px;
+    }
+
+
+
+    
+
+    .logoAides {
+        height: 80px;
+    }
+    
+    .logoAidesContainer {
+        gap: 32px;
+    }
+    
+
+    .logoAides div .tva{
+        width: 58.5px;
+    }
+    
+    .logoAides div .anha{
+        width: 65.25px;
+    }
+    
+    .logoAides div .mpr{
+        position: relative;
+        width: 54px;
+        top: -4px;
+    }
+    
+    .logoAides div .tauxzero{
+        width: 43px;
+    }
+
+
+
+
+    .pompeChaleur .aidesFlexboxContainer{
+        flex-direction: column;
+        margin-top: 46px;
+    }
+
+    .pompeChaleur .aidestextContainer{
+        margin-right: 0px;
+        margin-bottom: 24px;
+    }
+
+    .pompeChaleur .aidestextContainer p{
+        margin-right: 0;
+    }
+
+    .pompeChaleur  .aidestextContainer p{
+        font-size: 17px;
+        margin: 0%;
+        margin-top: 16px;
     }
 }
 
