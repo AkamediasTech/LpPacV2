@@ -303,9 +303,9 @@ footer{
     padding-top: 100px;
 }
 
-.section1 h2 {
-    font-size: 28px;
-    font-weight: bold;
+.section1 h3 {
+    font-size: 21px;
+    font-weight: 500;
 }
 
 .section1 .itemsFlexBox {
@@ -504,13 +504,88 @@ footer{
 
 
 
+
+.stats{
+    height: 288px;
+    width: 100%;
+    background-color: #22234A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.statsContainer{
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 24px;
+}
+
+.stats .statsContainer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stats .statsContainer div h3{
+    font-family: 'Poppins';
+    font-size: 96px;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    margin: 0%;
+    line-height: 96px;
+}
+
+.stats .statsContainer div p{
+    font-weight: 100;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin: 0%;
+}
+
+
+
+.aides{
+    min-height: 350px;
+    width: 100%;
+    background-color: white;
+}
+
+@media (max-width: 1700px){
+    .home{
+        background-color: rgb(255, 255, 255);
+        background-size: 193%;
+    }
+}
+
+
 @media (max-width: 1320px) {
+
+    .home{
+        background-color: rgb(255, 255, 255);
+        background-image: url('assets/home.png');
+        background-position: center 170px; /* Décale l'image de fond de 200px vers le bas */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 200%;
+    }
+
     .SectionText div{
         margin: 24px;
     }
 
     .banner{
         height: 512px;
+    }
+
+    .landbotContainer{
+        width: 90vw;
     }
 }
 
@@ -589,6 +664,33 @@ footer{
 
 
 
+
+    .home h1{
+        text-align: center;
+        margin-top: 28px;
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .home h2{
+        text-align: center;
+        margin-top: 8px;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .home p{
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .landbotContainer{
+        width: 90vw;
+        margin-top: 16px;
+        margin-bottom: 48px;
+    }
+
+
     .butonTp{
         height: 80px;
         display: flex;
@@ -657,6 +759,34 @@ footer{
     .phone .phoneContainer img{
         top: -88px; /* Décale l'image de 20px vers le haut */
         transform: scale(0.84);
+    }
+
+
+
+
+    .stats{
+        height: 224px;
+    }
+    
+    .statsContainer{
+        margin: 24px;
+    }
+    
+    .stats .statsContainer div{
+        gap: 8px;
+    }
+    
+    .stats .statsContainer div h3{
+        font-size: 76px;
+        line-height: 76px;
+    }
+    
+    .stats .statsContainer div p{
+        font-weight: 100;
+        font-size: 19px;
+        color: white;
+        text-align: center;
+        margin: 0%;
     }
 }
 
@@ -768,6 +898,14 @@ footer{
     }
 
 
+    .home{
+        background-color: rgb(255, 255, 255);
+        background-image: url('assets/home.png');
+        background-position: center 0px; /* Décale l'image de fond de 200px vers le bas */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 270%;
+    }
     
     .SectionText div{
         margin: 24px;
@@ -817,6 +955,7 @@ footer{
 
     .avis .avisContainer{
         font-size: 16px;
+        margin-bottom: 46px;
     }
 
     .avis .avisContainer .avisContainerFlexbox div h6{
@@ -844,10 +983,12 @@ footer{
     }
     
     .phone .phoneContainer div{
+        position: relative;
         padding-right: 0px;
         margin-left: 24px;
         margin-right: 24px;
         margin-top: 16px;
+        top: -140px;
     }
     
     .phone .phoneContainer div a{
@@ -863,6 +1004,39 @@ footer{
         top: -88px; /* Décale l'image de 20px vers le haut */
         width: 320px; /* Réduit la largeur de l'image à 75% de sa taille d'origine */
     }
+
+
+    .stats{
+        height: auto;
+        position: relative;
+        top: -140px;
+    }
+    
+    .statsContainer{
+        flex-direction: column;
+        margin: 24px;
+        gap: 64px;
+        margin: 24px;
+        margin-top: 64px;
+        margin-bottom: 64px;
+    }
+    
+    .stats .statsContainer div{
+        gap: 8px;
+    }
+    
+    .stats .statsContainer div h3{
+        font-size: 76px;
+        line-height: 76px;
+    }
+    
+    .stats .statsContainer div p{
+        font-weight: 100;
+        font-size: 19px;
+        color: white;
+        text-align: center;
+        margin: 0%;
+    }
 }
 
 
@@ -870,5 +1044,14 @@ footer{
 @media (max-width: 496px) {
     .banner{
         height: 260px;
+    }
+
+    .phone .phoneContainer div a{
+        margin-left: 24%;
+        margin-right: auto;
+    }
+
+    .phone .phoneContainer div .miniTxt{
+        margin-left: 24%;
     }
 }
