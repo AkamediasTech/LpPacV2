@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header id="headerTp">
@@ -29,7 +29,6 @@
                 <img class="logo2" src="./assets/Ma-prime-renov.png" alt="Logo Ma-prime-renov">
                 <img class="logo3" src="./assets/France-renov_Logo.png" alt="Logo France-Renov">
             </div>
-            
         </div>
     </header>
 
@@ -56,10 +55,53 @@
     </div>
 
     <div class="avisGoogle">
-        <div>
-            <h2>
-                NOS CLIENTS <br><span class="AvisTitre">PARLENT DE NOUS</span>
-            </h2>
+        <div class="avisGoogleBody">
+            <h2>NOS CLIENTS <br><span class="AvisTitre">PARLENT DE NOUS</span></h2>
+            <div class="AvisBar"></div>
+
+            <div class="avisgoogleContainer">
+                <div class="EnergieFranceProfil">
+                    <div class="EnergieFranceProfilText">
+                        <h3>EnergieFrance</h3>
+                        <span class="starsContainer">
+                            <h2>4.6</h2>
+                            <span class="ceNzKf" role="img" aria-label="4,6 étoiles">
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc UpDOYb"></span>
+                            </span>
+                        </span>
+                        <h4>Basé sur 51 avis</h4>
+                        <p>powered by
+                        <span style="color:#6186ec!important">G</span><span style="color:#cd523f!important">o</span><span style="color:#eabe43!important">o</span><span style="color:#6186ec!important">g</span><span style="color:#63a45d!important">l</span><span style="color:#cd523f!important">e</span></p>
+                    </div>
+                    <img src="./assets/logoGoogleEnergieFrance.png" alt="photoProfil ENGF">
+                </div>
+
+                <div class="carousel">
+                    <img src="./assets/arrow.png" alt="précedent"  class="arrow" onclick="prevSlide()">
+                    <div class="carousel-container">
+                        <div class="carousel-images" id="carouselImages">
+                            <img src="avis/image1.png" alt="image1">
+                            <img src="avis/image2.png" alt="image2">
+                            <img src="avis/image3.png" alt="image3">
+                            <img src="avis/image4.png" alt="image4">
+                            <img src="avis/image5.png" alt="image5">
+                            <img src="avis/image6.png" alt="image6">
+                        </div>
+                    </div>
+                    <img src="./assets/arrow1.png" alt="suivant" class="arrow" onclick="nextSlide()">
+                </div>
+            </div>
+
+            <div class="dots-container">
+                <div class="dot focusDot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>            
         </div>
     </div>
 
@@ -202,16 +244,25 @@
             <h2>Nos <span class="highlight">Partenaires</span></h2>
             <div class="partenaireBar"></div>
             <div class="partenaireContainerLogo">
-                <img class="tva" src="./assets/tva.png" alt="Logo tva 5.5">
-                <img class="anha" src="./assets/anha.png" alt="Logo Anha">
-                <img class="mpr" src="./assets/Ma-prime-renov 1.png" alt="Logo ma prime renov">
-                <img class="tauxzero" src="./assets/taux0.jpg" alt="Logo pret taux 0">
+                <img class="partenaireLogo" src="./assets/panasonic.png" alt="Panasonic">
+                <img class="partenaireLogo" src="./assets/atlantic.png" alt="Atlantic">
+                <img class="partenaireLogo" src="./assets/mitsubishi.png" alt="Mitsubishi">
+                <img class="partenaireLogo" src="./assets/daikin.png" alt="Daikin">
             </div>
-            <div class="partenaireBar1"></div>
+            <div class="partenaireBar partenaireBar1"></div>
         </div>
     </div>
 
 
+
+
+
+
+
+    <div class="butonTp">
+        <p>Êtes vous éligible ? Découvrez le montant de vos aides ! </p>
+        <a href="#headerTp">Simuler mes aides</a>
+    </div>
 
 
     <footer>
@@ -223,6 +274,5 @@
             <a href="#" class="footer-link">CGU</a>
         </div>        
     </footer>
-    
 </body>
 </html>

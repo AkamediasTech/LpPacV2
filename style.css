@@ -221,6 +221,8 @@ footer{
 }
 
 
+
+
 .avisGoogle{
     display: flex;
     flex-direction: column;
@@ -232,8 +234,13 @@ footer{
     background-color: white;
 }
 
-.avisGoogle div{
+.avisGoogle .avisGoogleBody{
     max-width: 1280px;
+    margin: 24px;
+    margin-bottom: 48px;
+    margin-top: 32px;
+    object-fit: cover;
+    
 }
 
 .avisGoogle h2{
@@ -241,13 +248,156 @@ footer{
     color: black;
     text-transform: uppercase;
     font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 38px;
 }
 
 .avisGoogle .AvisTitre{
     color: #004081;
 }
 
+.AvisBar{
+    height: 1px;
+    width: 846px;
+    background-color: #004081;
+}
 
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+
+
+.focusDot {
+    background-color: #0A7CFF;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 0 8px rgba(10, 124, 255, 0.5); 
+    width: 10px;
+    height: 10px;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: center;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil{
+    display: flex;
+    flex-direction: row-reverse;
+    gap:10px;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText {
+    display: flex;
+    flex-direction: column;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText .starsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText h3{
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+    margin: 0%;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText h2{
+    font-size: 21px;
+    color: #474747;
+    font-weight: 500;
+    margin: 0%;
+    line-height: 21px;
+    margin-top: 3px;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText h4{
+    font-size: 14px;
+    color: #555555;
+    font-weight: 400;
+    margin: 0%;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText p{
+    font-size: 15px;
+    color: #777777;
+    font-weight: 200;
+    margin: 0%;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText p span{
+    font-weight: 300;
+}
+
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil {
+    height: 60px;
+    width: 60px;
+    margin-top: 8px;
+}
+
+.ceNzKf {
+    padding-left: 6px;
+    padding-right: 4px;
+    display: inline-flex;
+}
+
+
+.rFrJzc {
+    background-size: 21px 21px;
+    background-image: url('assets/ic_star_rate_14.png');
+}
+
+.rFrJzc {
+    vertical-align: top;
+    display: inline-block;
+    width: 21px;
+    height: 20px;
+}
+
+.UpDOYb {
+    background-image: url('assets/ic_star_rate_half_14.png');
+}
+
+
+
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    width: 996px;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-images img {
+    width: 300px;
+    height: auto;
+    margin: 16px;
+}
 
 
 
@@ -696,8 +846,11 @@ footer{
 .pompeChaleur .aidesFlexboxContainer{
     max-width: 1280px;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin: 24px;
     margin-top: 64px;
+    margin-bottom: 64px;
     align-items: flex-start;
 }
 
@@ -721,6 +874,66 @@ footer{
     height: 350px;
 }
 
+
+
+
+
+
+.partenaire {
+    width: 100%;
+    height: auto;
+    min-height: 444px;
+    background-color: #22234A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partenaireContainer {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px;
+    margin-bottom: 32px;
+}
+
+.partenaireContainer h2{
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: 0px;
+}
+
+.partenaireContainer .highlight {
+    color: #0063C7;
+}
+
+.partenaireBar {
+    width: 680px;
+    height: 1px;
+    background-color: #FFFFFF;
+}
+
+.partenaireBar1 {
+    align-self: flex-end;
+}
+
+.partenaireContainerLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* S'assure que le conteneur prend toute la largeur disponible */
+    margin: 24px 0;
+}
+
+.partenaireLogo {
+    flex-grow: 1; /* Permet aux logos de s'agrandir pour occuper l'espace */
+    max-width: 20%; /* Évite que les logos deviennent trop grands */
+    height: auto; /* Maintient le ratio d'aspect */
+    object-fit: contain; /* Ajuste l'affichage des images */
+}
 
 
 @media (max-width: 1700px){
@@ -752,6 +965,10 @@ footer{
 
     .landbotContainer{
         width: 90vw;
+    }
+
+    .partenaire {
+        min-height: 340px;
     }
 }
 
@@ -990,6 +1207,16 @@ footer{
 
     .pompeChaleur .aidestextContainer p{
         font-size: 17px;
+    }
+
+
+
+    .partenaire {
+        min-height: 300px;
+    }
+
+    .partenaireContainer h2{
+        font-size: 26px;
     }
 }
 
@@ -1319,7 +1546,10 @@ footer{
 
     .pompeChaleur .aidesFlexboxContainer{
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-top: 46px;
+        margin-bottom: 32px;
     }
 
     .pompeChaleur .aidestextContainer{
@@ -1336,6 +1566,41 @@ footer{
         margin: 0%;
         margin-top: 16px;
     }
+
+    .pompeChaleur .aidesVideoContainer{
+        margin-top: 16px;
+    }
+
+
+
+
+
+
+
+
+.partenaireContainer {
+    margin: 48px 24px;
+}
+
+.partenaireContainer h2{
+    font-size: 24px;
+}
+
+.partenaireBar {
+    width: 240px;
+}
+
+
+.partenaireContainerLogo {
+    flex-direction: column;
+    margin: 32px 0;
+    gap: 16px;
+}
+
+.partenaireLogo {
+    max-width: 60%;
+}
+
 }
 
 
