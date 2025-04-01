@@ -1378,10 +1378,11 @@ footer{
     .home{
         background-color: rgb(255, 255, 255);
         background-image: url('assets/home.png');
-        background-position: center 0px; /* Décale l'image de fond de 200px vers le bas */
+        background-position: center 150px;
         background-repeat: no-repeat;
         background-size: cover;
         background-size: 270%;
+        height: auto;
     }
     
     .SectionText div{
@@ -1394,6 +1395,14 @@ footer{
     
     .SectionText p{
         font-size: 19px;
+    }
+
+
+    .landbotContainer{
+        width: 90vw;
+        height: 550px;
+        margin-top: 16px;
+        margin-bottom: 48px;
     }
 
 
@@ -1687,6 +1696,11 @@ footer{
 
     .avisGoogle .avisGoogleBody{
         margin-bottom: 64px;
+    }
+
+    .aides, .logoAides, .butonTpUp, .pompeChaleur, .partenaire{
+        position: relative;
+        top: -146px;
     }
 }
 
