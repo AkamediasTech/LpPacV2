@@ -5,7 +5,7 @@ const visibleImages = 3;
 const dots = document.querySelectorAll(".dot");
 
 function updateCarousel() {
-    const offset = -index * 332;
+    const offset = -index * 316;
     document.getElementById("carouselImages").style.transform = `translateX(${offset}px)`;
     updateDots();
 }

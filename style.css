@@ -237,7 +237,7 @@ footer{
 .avisGoogle .avisGoogleBody{
     max-width: 1280px;
     margin: 24px;
-    margin-bottom: 48px;
+    margin-bottom: 96px;
     margin-top: 32px;
     object-fit: cover;
     
@@ -292,8 +292,9 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 32px;
+    gap: 64px;
     align-items: center;
+    margin-top: 16px;
 }
 
 .avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil{
@@ -346,7 +347,7 @@ footer{
     font-weight: 300;
 }
 
-.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil {
+.avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil img{
     height: 60px;
     width: 60px;
     margin-top: 8px;
@@ -382,12 +383,11 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
 }
 .carousel-container {
     display: flex;
     overflow: hidden;
-    width: 996px;
+    width: 948px;
 }
 .carousel-images {
     display: flex;
@@ -396,8 +396,13 @@ footer{
 .carousel-images img {
     width: 300px;
     height: auto;
-    margin: 16px;
+    margin: 8px;
 }
+
+
+
+
+
 
 
 
@@ -970,6 +975,27 @@ footer{
     .partenaire {
         min-height: 340px;
     }
+
+    .carousel-container {
+        display: flex;
+        overflow: hidden;
+        width: 632px;
+    }
+
+    .avisGoogle .avisGoogleBody .avisgoogleContainer {
+        gap: 32px;
+    }
+
+
+    .avisGoogle h2{
+        font-size: 28px;
+        margin-bottom: 8px;
+        line-height: 38px;
+    }
+    
+    .AvisBar{
+        width: 632px;
+    }
 }
 
 
@@ -1218,6 +1244,16 @@ footer{
     .partenaireContainer h2{
         font-size: 26px;
     }
+
+    .avisGoogle h2{
+        font-size: 26px;
+        margin-bottom: 8px;
+        line-height: 38px;
+    }
+    
+    .AvisBar{
+        width: 524px;
+    }
 }
 
 
@@ -1251,6 +1287,17 @@ footer{
 
     .banner{
         height: 396px;
+    }
+
+    .carousel-container {
+        display: flex;
+        overflow: hidden;
+        width: 316px;
+    }
+
+    .avisGoogle .avisGoogleBody .avisgoogleContainer {
+        gap: 32px;
+        justify-content: center;
     }
 }
 
@@ -1578,29 +1625,69 @@ footer{
 
 
 
-.partenaireContainer {
-    margin: 48px 24px;
-}
+    .partenaireContainer {
+        margin: 48px 24px;
+    }
 
-.partenaireContainer h2{
-    font-size: 24px;
-}
+    .partenaireContainer h2{
+        font-size: 24px;
+    }
 
-.partenaireBar {
-    width: 240px;
-}
+    .partenaireBar {
+        width: 240px;
+    }
 
 
-.partenaireContainerLogo {
-    flex-direction: column;
-    margin: 32px 0;
-    gap: 16px;
-}
+    .partenaireContainerLogo {
+        flex-direction: column;
+        margin: 32px 0;
+        gap: 16px;
+    }
 
-.partenaireLogo {
-    max-width: 60%;
-}
+    .partenaireLogo {
+        max-width: 60%;
+    }
 
+
+
+    .carousel-container {
+        display: flex;
+        overflow: hidden;
+        width: 316px;
+    }
+
+    .avisGoogle .avisGoogleBody .avisgoogleContainer {
+        gap: 32px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 48px;
+        margin-bottom: 48px;
+    }
+
+    .avisGoogle h2{
+        font-size: 22px;
+        margin-bottom: 8px;
+        line-height: 38px;
+    }
+    
+    .AvisBar{
+        width: 320px;
+    }
+
+    .arrow{
+        width: 20px;
+        height: 30px;
+    }
+
+    .avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil {
+        align-self: flex-start;
+        margin-left: 32px;
+    }
+
+    .avisGoogle .avisGoogleBody{
+        margin-bottom: 64px;
+    }
 }
 
 
