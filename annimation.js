@@ -1,24 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
     const stats = document.querySelectorAll(".stats h3");
-    let animationQueue = [];  // File pour gérer les animations dans l'ordre
-    let isAnimating = false;  // Pour vérifier si une animation est déjà en cours
+    let animationQueue = [];
+    let isAnimating = false;
 
-    // Stocker la valeur originale et initialiser à 0
     stats.forEach(stat => {
-        stat.setAttribute("data-value", stat.innerText); // Stocke la valeur originale
-        stat.innerText = "0"; // Initialise à 0
+        stat.setAttribute("data-value", stat.innerText);
+        stat.innerText = "0";
     });
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.boundingClientRect.top <= window.innerHeight && entry.isIntersecting) {
-                // Ajouter l'élément à la file d'attente si il devient visible
                 animationQueue.push(entry.target);
-                observer.unobserve(entry.target);  // Arrêter d'observer l'élément une fois qu'il est animé
-
-                // Si aucune animation n'est en cours, commencer la première animation
-                if (!isAnimating) {
-                    startNextAnimation();
+                observer.unobserve(entry.target);
+                if (!isAnimating && animationQueue.length === 1) {
+                    scrollDown();
                 }
             }
         });
@@ -26,32 +22,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     stats.forEach(stat => observer.observe(stat));
 
-    // Fonction pour traiter les éléments dans l'ordre avec un délai entre chaque animation
+    function scrollDown() {
+        const scrollOffset = window.innerHeight * 0.75; 
+        window.scrollBy({
+            top: scrollOffset,
+            behavior: 'smooth'  
+        });
+
+        setTimeout(() => {
+            lockScroll();
+            startNextAnimation();
+        }, 1000);  // Délai pour permettre à l'auto-défilement de se terminer
+    }
+
+    function lockScroll() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function unlockScroll() {
+        document.body.style.overflow = '';
+    }
+
     function startNextAnimation() {
         if (animationQueue.length > 0) {
-            isAnimating = true;  // Indiquer qu'une animation est en cours
-            const currentElement = animationQueue.shift();  // Prendre le premier élément de la file d'attente
+            isAnimating = true;
+            const currentElement = animationQueue.shift();
             let targetValue = currentElement.getAttribute("data-value");
             if (targetValue) {
                 animateNumbers(currentElement, targetValue, () => {
-                    // Quand l'animation est terminée, traiter l'élément suivant après 500ms
                     setTimeout(() => {
-                        isAnimating = false;  // Réinitialiser l'indicateur d'animation
-                        startNextAnimation();  // Démarrer l'animation suivante
-                    }, 200); // Attendre 500ms avant de traiter l'élément suivant
+                        isAnimating = false;
+                        if (animationQueue.length > 0) {
+                            startNextAnimation();
+                        } else {
+                            unlockScroll(); // Déverrouiller le scroll une fois toutes les animations terminées
+                        }
+                    }, 200);
                 });
             }
         }
     }
 
-    // Fonction pour animer le nombre
     function animateNumbers(element, targetValue, callback) {
         let target = parseInt(targetValue.replace('%', ''));
         let isPercentage = targetValue.includes('%');
         let count = 0;
-        let steps = 50; // Augmenter le nombre d'étapes pour ralentir l'animation
+        let steps = 50;
         let increment = Math.ceil(target / steps);
-        let speed = 20; // Augmenter l'intervalle de temps pour ralentir l'animation
+        let speed = 20;
 
         function updateNumber() {
             count += increment;
