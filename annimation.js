@@ -83,4 +83,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let interval = setInterval(updateNumber, speed);
     }
+
+
+    document.querySelectorAll(".fade-text-auto").forEach(element => {
+        if (element.getBoundingClientRect().top < window.innerHeight - 75) {
+            element.classList.add("fade-in");
+        }
+    });
 });
+
+
+
+window.addEventListener("scroll", function() {
+    document.querySelectorAll(".fade-text").forEach(element => {
+        if (element.getBoundingClientRect().top < window.innerHeight - 75) {
+            element.classList.add("fade-in");
+        }
+    });
+});
+
+
+function isElementInViewport(el) {
+    let rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight - 150; // 50px avant d'être complètement visible
+}
+
+function checkVisibility() {
+    document.querySelectorAll('.slide').forEach(el => {
+        if (isElementInViewport(el) && !el.classList.contains('slidevisible')) {
+            setTimeout(() => {
+                el.classList.add('slidevisible');
+            }, 300); // Délai de 100ms
+        }
+    });
+}
+
+window.addEventListener("scroll", checkVisibility);
+window.addEventListener("load", checkVisibility);

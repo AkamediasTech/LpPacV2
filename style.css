@@ -12,6 +12,65 @@ body{
 }
 
 
+.fade-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-text-auto {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide {
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slideRight {
+    transform: translateX(-50px);
+}
+
+.slideLeft {
+    transform: translateX(50px);
+}
+
+.slidevisible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.pageLegal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageLegalContent{
+    max-width: 1280px;
+    margin: 24px;
+    text-align: justify;
+}
+
+.pageLegalContent h1{
+    margin: 0%;
+}
+
+.pageLegalContent p{
+    margin: 0%;
+}
+
+
+
 .header-text{
     width: 100%;
     height: 32px;
