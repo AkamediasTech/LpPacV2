@@ -8,6 +8,7 @@ body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 
@@ -132,17 +133,17 @@ footer{
     background-image: "";
     background-color: rgb(255, 255, 255);
     background-image: url('assets/home.png');
-    background-position: center center; /* Centre l'image horizontalement et verticalement */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    background-size: cover; /* L'image est redimensionnée pour couvrir toute la div, ce qui peut entraîner des débordements */
-    background-size: 150%; /* Zoom sur l'image (150% pour que l'image dépasse en hauteur et en largeur) */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 150%;
 
 }
 
 .home h1{
     margin: 0px;
     font-weight: 500;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #004081;
     margin-top: 28px;
     font-size: 40px;
@@ -941,6 +942,104 @@ footer{
 }
 
 
+
+
+
+
+.section2 {
+    width: 100%;
+    margin: 16px 0px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.section2 .container {
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    margin-left: 16px;
+}
+
+.section2 .container .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 20px;
+    padding-right: 24px;
+}
+
+.section2 .container .title .highlight{
+    color: #004081;
+}
+
+.section2 .container p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 16px;
+    text-align: justify;
+    padding-right: 24px;
+
+}
+
+.section2 .container .AvisBar{
+    width: 846px;
+    height: 1px;
+    background-color: #004081;
+    margin-bottom: 24px;
+}
+
+/* Tables */
+.table-wrapper {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.table-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Scroll horizontal sur mobile */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Table générale */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+    min-width: 400px;
+    overflow-x: scroll;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #f8f8f8;
+    font-weight: 500;
+}
+
+.tres-modestes { background-color: #bbdefb; }
+.modestes { background-color: #FFF8A4; }
+.intermediaires { background-color: #d1c4e9; }
+.superieurs { background-color: #f8bbd0; }
+
+
+
+
 @media (max-width: 1700px){
     .home{
         background-color: rgb(255, 255, 255);
@@ -1298,6 +1397,10 @@ footer{
     .avisGoogle .avisGoogleBody .avisgoogleContainer {
         gap: 32px;
         justify-content: center;
+    }
+
+    .section2 .container .AvisBar {
+        width: 628px;
     }
 }
 
@@ -1698,10 +1801,59 @@ footer{
         margin-bottom: 64px;
     }
 
-    .aides, .logoAides, .butonTpUp, .pompeChaleur, .partenaire{
+
+
+
+
+    .section2 .container{
+        padding: 0%;
+        /* width: calc(100% -24px); */
+        overflow: hidden;
+    }
+
+    .section2 .container p{
+        /* padding-right: 13%; */
+        margin-right: 0;
+        width: 95%;
+    }
+
+    .title {
+        font-size: 21px;
+        /* padding-right: 15%; */
+        width: 95%;
+        margin-top: 0%;
+    }
+    .table-title {
+        font-size: 16px;
+    }
+    table {
+        font-size: 12px;
+    }
+
+    .section2{
+        margin-top: 0px;
+    }
+
+    .section2 .container .p{
+        max-width: 380px;
+    }
+
+    .table-container {
+        width: 90%;
+        overflow-x: scroll;
+    }
+
+    .aides, .logoAides, .butonTpUp, .pompeChaleur, .partenaire, .section2{
         position: relative;
         top: -146px;
     }
+
+    .section2{
+        position: relative;
+        top: -78px;
+    }
+
+
 }
 
 
@@ -1718,5 +1870,22 @@ footer{
 
     .phone .phoneContainer div .miniTxt{
         margin-left: 24%;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+    .table-title {
+        font-size: 14px;
+    }
+    table {
+        font-size: 10px;
+    }
+    th, td {
+        padding: 8px;
+    }
+
+    .section2 .container .AvisBar {
+        width: 328px;
     }
 }
