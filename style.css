@@ -948,7 +948,7 @@ footer{
 
 .section2 {
     width: 100%;
-    margin: 16px 0px;
+    margin: 32px 0px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -968,7 +968,7 @@ footer{
     font-size: 24px;
     font-weight: 600;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding-right: 24px;
 }
 
