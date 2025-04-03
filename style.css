@@ -2,6 +2,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body{
@@ -225,8 +226,9 @@ footer{
     margin: 0px;
     font-weight: 600;
     color: #004081;
-    text-decoration: underline;
-    font-size: 18px;
+    /* text-decoration: underline; */
+    font-size: 16px;
+    font-style: italic;
 }
 
 .landbotContainer{
@@ -240,7 +242,7 @@ footer{
     align-items: center;
     justify-content: center;
     padding: 8px;
-    box-shadow: 0 0 10px 10px rgba(0, 94, 188, 0.2);
+    box-shadow: 0 0 10px 10px rgba(0, 94, 188, 0.3);
 }
 
 #myLandbot{
@@ -408,7 +410,7 @@ footer{
 }
 
 .avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil .EnergieFranceProfilText p span{
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .avisGoogle .avisGoogleBody .avisgoogleContainer .EnergieFranceProfil img{
@@ -1239,7 +1241,7 @@ th {
     .home h1{
         text-align: center;
         margin-top: 28px;
-        font-size: 32px;
+        font-size: 28px;
         line-height: 36px;
     }
 
@@ -1252,7 +1254,7 @@ th {
 
     .home p{
         text-align: center;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .landbotContainer{
@@ -1566,7 +1568,7 @@ th {
 
     .landbotContainer{
         width: 90vw;
-        height: 550px;
+        height: 80vh;
         margin-top: 16px;
         margin-bottom: 48px;
     }

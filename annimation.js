@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             lockScroll();
             startNextAnimation();
-        }, 1000);  // Délai pour permettre à l'auto-défilement de se terminer
+        }, 600);  // Délai pour permettre à l'auto-défilement de se terminer
     }
 
     function lockScroll() {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         } else {
                             unlockScroll(); // Déverrouiller le scroll une fois toutes les animations terminées
                         }
-                    }, 200);
+                    }, 100);
                 });
             }
         }
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let count = 0;
         let steps = 50;
         let increment = Math.ceil(target / steps);
-        let speed = 20;
+        let speed = 15;
 
         function updateNumber() {
             count += increment;
@@ -105,7 +105,7 @@ window.addEventListener("scroll", function() {
 
 function isElementInViewport(el) {
     let rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight - 150; // 50px avant d'être complètement visible
+    return rect.top < window.innerHeight - 150;
 }
 
 function checkVisibility() {
@@ -113,7 +113,7 @@ function checkVisibility() {
         if (isElementInViewport(el) && !el.classList.contains('slidevisible')) {
             setTimeout(() => {
                 el.classList.add('slidevisible');
-            }, 300); // Délai de 100ms
+            }, 300);
         }
     });
 }
