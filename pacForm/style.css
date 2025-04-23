@@ -197,10 +197,10 @@ footer{
     background-image: "";
     background-color: rgb(255, 255, 255);
     background-image: url('assets/home.png');
-    background-position: center center;
+    background-position: calc(50% + 50px) center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 150%;
+    background-size: 165%;
 }
 
 .home h1{
@@ -1120,10 +1120,10 @@ th {
     .home{
         background-color: rgb(255, 255, 255);
         background-image: url('assets/home.png');
-        background-position: center 170px; /* Décale l'image de fond de 200px vers le bas */
+        background-position: calc(50% + 50px) center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-size: 200%;
+        background-size: 230%;
     }
 
     .SectionText div{
@@ -1242,6 +1242,8 @@ th {
         min-height: 30vh;
         height: auto;
         padding-bottom: 64px;
+        background-position: calc(50% + 50px) center;
+        background-size: 210%;
     }
 
     .home h1{
@@ -1429,6 +1431,12 @@ th {
 
 
 @media (max-width: 946px) {
+
+    .home{
+        background-position: calc(50% - 20px) center;
+        background-size: 230%;
+    }
+
     .butonTp{
         height: auto;
         display: flex;

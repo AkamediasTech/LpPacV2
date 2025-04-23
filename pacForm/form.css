@@ -189,7 +189,7 @@ button{
 
 /* Conteneur du loader */
 .loader-container {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100px;
@@ -449,4 +449,10 @@ button{
         margin-top: -30px;
         margin-left: -30px;
     } */
+  }
+
+  @media screen and (max-width: 372px) {
+    .containerCricle {
+        gap: 16px;
+    }
   }
