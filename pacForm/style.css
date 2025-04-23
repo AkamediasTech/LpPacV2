@@ -707,7 +707,8 @@ footer{
 .phone .phoneContainer div a{
     text-decoration: none;
     font-size: 20px;
-    background-color: #22234A;
+    /* background-color: #22234A; */
+    background-color: #0A7CFF;
     height: 80px;
     width: 256px;
     border-radius: 3px;
@@ -722,7 +723,8 @@ footer{
 .phone .phoneContainer div .miniTxt{
     font-size: 14px;
     font-weight: 500;
-    color: #004081;
+    /* color: #004081; */
+    color: #000000;
     margin-top: 8px;
 }
 
@@ -1915,16 +1917,18 @@ th {
     }
 
     .section2 .container p{
-        /* padding-right: 13%; */
+        padding-right: 0;
         margin-right: 0;
         width: 95%;
     }
 
-    .title {
-        font-size: 21px;
-        /* padding-right: 15%; */
+    .section2 .container .title {
+        /* font-size: 21px; */
+        padding-right: 0;
         width: 95%;
         margin-top: 0%;
+        text-align: justify;
+        text-justify: inter-character;
     }
     .table-title {
         font-size: 16px;
@@ -1936,10 +1940,10 @@ th {
     .section2{
         margin-top: 0px;
     }
-
+/* 
     .section2 .container .p{
         max-width: 380px;
-    }
+    } */
 
     .table-container {
         width: 90%;
