@@ -336,7 +336,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     function randomDelay() {
-        return Math.random() * (7500 - 6000) + 6000;
+        // return Math.random() * (7500 - 6000) + 6000;
+        return 3000;
     }
     toggleNextButtonVisibility();
 });
