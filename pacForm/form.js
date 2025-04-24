@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const buttonTextTab = [
         "",
-        "Suivant",
         "Obtenir mon estimation",
     ];
     
@@ -68,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     nextBtn.addEventListener('click', () => {
         if (validateCurrentStep()) {
             const isLastStep = currentStep >= inputs.length - 1;
-            const shouldShowLoader = !(currentStep === 5 || currentStep === 6);
+            const shouldShowLoader = !(currentStep === 5);
             displayStep();
             buttonText();
 
@@ -79,10 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 showLoader();
                 const delay = randomDelay();
                 delayDiv = delay;
-    
                 setTimeout(() => {
                     nextText();
-                    passToSucess(); 
+                    passToSucess();
                 }, delay / 2);
             }
     
@@ -113,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, delay / 2);
         setTimeout(() => {
             hideLoader(); 
-            if (currentStep < inputs.length - 1) {
+            if (currentStep < inputs.length) {
                 inputs[currentStep].classList.add('active');
                 toggleNextButtonVisibility();
             } else {
@@ -205,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displayStep(){
         const currentStepSync = currentStep + 1;
-        if(currentStepSync === 1 || currentStepSync === 5 || currentStepSync === 6){
+        if(currentStepSync === 1 || currentStepSync === 5){
             document.getElementById(`circle-${displayStepCounter}`)?.classList.remove('activeCircle');
             displayStepCounter++;
             document.getElementById(`circle-${displayStepCounter}`)?.classList.add('activeCircle');
@@ -286,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append(key, answers[key]);
         });
 
-        fetch('https://techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d', {
+        fetch('https://techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0', { //techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d
             method: 'POST',
             body: formData
         })

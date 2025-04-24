@@ -70,12 +70,12 @@
                     </div>
                     <div class="circle-item">
                         <div class="circle" id="circle-3">3</div>
-                        <p class="text">profil</p>
-                    </div>
-                    <div class="circle-item">
-                        <div class="circle" id="circle-4">4</div>
                         <p class="text">Finaliser</p>
                     </div>
+                    <!-- <div class="circle-item">
+                        <div class="circle" id="circle-4">4</div>
+                        <p class="text">Finaliser</p>
+                    </div> -->
                 </div>
     
                 <!-- <div id="loader-container" class="loader-container">
@@ -85,7 +85,7 @@
                 <!-- Code postal -->
     
                 <div class="input-container active">
-                    <label for="codePostal">Commençons, quel est votre code postal ?</label>
+                    <label for="codePostal">Vérifions votre éligibilité aux aides régionales</label>
                     <div class="inputInLine">
                         <input type="text" id="codePostal" name="codePostal" required pattern="\d{5}" placeholder="Code Postal" title="Le code postal doit être constitué de 5 chiffres.">
                         <input type="text" id="Ville" name="Ville" placeholder="Ville" required>
@@ -136,26 +136,24 @@
     
                 <!-- Nom et prenom -->
                 <div class="input-container">
-                    <label for="nom">Nom pour l'estimation :</label>
+                    <label for="nom">Recevez l'estimation de vos aides 2025</label>
                     <div class="inputInLine">
                         <input type="text" id="nom" name="nom" placeholder="Nom" required>
                         <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
                     </div>
+                    <div class="inputInLine inputInLineSpace">
+                        <input type="tel" id="telephone" name="telephone" placeholder="Téléphone" pattern="^\+?[0-9]{10,15}$" title="Le numéro de téléphone doit être valide (10 à 15 chiffres)." required>
+                        <input type="email" id="email" name="email" placeholder="Email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'adresse mail doit être valide." required>
+                    </div>
                 </div>
     
                 <!-- Téléphone -->
-                <div class="input-container">
+                <!-- <div class="input-container">
                     <label for="telephone">Votre téléphone et Email pour finaliser la simulation :</label>
                     <div class="inputInLine">
                         <input type="tel" id="telephone" name="telephone" placeholder="Téléphone" pattern="^\+?[0-9]{10,15}$" title="Le numéro de téléphone doit être valide (10 à 15 chiffres).">
                         <input type="email" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'adresse mail doit être valide.">
                     </div>
-                </div>
-    
-                <!-- Adresse email
-                <div class="input-container">
-                    <label for="email">Adresse mail pour envoyer la simulation :</label>
-                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'adresse mail doit être valide.">
                 </div> -->
     
                 <!-- Bouton Suivant -->
