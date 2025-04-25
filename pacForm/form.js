@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append(key, answers[key]);
         });
 
-        fetch('https://techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0', { //techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d
+        fetch('https://techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d', { //techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d
             method: 'POST',
             body: formData
         })
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(answers);
             if (answers.step1 !== "Appartement" && answers.step2 !== "Locataire") {
                 console.log("validation");
-                // fbq('track', 'Lead');
+                fbq('track', 'Lead');
             }
         }, randomDelay());
     }
