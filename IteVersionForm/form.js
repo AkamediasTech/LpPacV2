@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(answers);
             if (answers.step1 !== "Appartement" && answers.step2 !== "Locataire") {
                 console.log("validation");
-                // fbq('track', 'Lead');
+                fbq('track', 'Lead');
             }
         }, randomDelay());
     }

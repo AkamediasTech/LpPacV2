@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergieFrance</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="annimation.js" defer></script>
+
+    <!-- Meta Pixel Code -->
+    <!-- <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1575356153359987');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1575356153359987&ev=PageView&noscript=1"
+    /></noscript> -->
+    <!-- End Meta Pixel Code -->
+
+
+    <style>
+        #myLandbot {
+            position: relative;
+            top: -100px;
+            z-index: 1;
+        }
+
+        header {
+            position: relative;
+            z-index: 2 !important;
+        }   
+
+        @media screen and (max-width: 782px) {
+            #myLandbot {
+                top: -80px;
+                height: 90vh !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="headerTp">
+        <div class="header-text">
+            <p>Jusqu'à 15 000€ d'aides sur l'isolation thermique extérieure</p>
+        </div>
+        <div class="header">
+            <div class="EnergieFrance">
+                <a href="index.html">
+                    <img class="logoEnergieFrance" src="./assets/logo.png" alt="logo EnergieFrance">
+                </a>
+                <div>
+                    <h2>EnergieFrance</h2>
+                    <p>N°1 des simulateurs en ligne</p>
+                </div>
+            </div>
+            <div class="logo">
+                <img class="logo1" src="./assets/Logo_de_la_République_française_(1999).png" alt="Logo République-Francaise">
+                <img class="logo4" src="./assets/Francerelance.png" alt="Logo France-Relance">
+                <img class="logo2" src="./assets/Ma-prime-renov.png" alt="Logo Ma-prime-renov">
+                <img class="logo3" src="./assets/France-renov_Logo.png" alt="Logo France-Renov">
+            </div>
+        </div>
+    </header>
+
+    <script SameSite="None; Secure"  type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
+    <div id="myLandbot" style="width: 100%; height: 60vh"></div>
+    <script type="module">
+      var myLandbot = new Landbot.Container({
+        container: '#myLandbot',
+        configUrl: 'https://storage.googleapis.com/landbot.pro/v3/H-2830804-MX984256PSPST97M/index.json',
+      });
+    </script>
+
+    
+
+    <div class="avis">
+        <div class="avisContainer fade-text">
+            <p>“J’ai simplement rempli un formulaire, et deux semaines plus tard, mon isolation thermique extérieure était en place, sans aucun frais à ma charge ! Ma maison bénéficie désormais d’un <span class="bold">meilleur confort acoustique et thermique qui améliore ma qualité de vie</span> au quotidien.”</p>
+            <div class="avisContainerFlexbox">
+                    <img src="./assets/man-having-video-call-with-his-family 1.png" alt="photoProfil">
+                <div>
+                    <h6>Remy G.</h6>
+                    <p>spécialiste auto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="avisGoogle">
+        <div class="avisGoogleBody fade-text">
+            <h2>NOS CLIENTS <br><span class="AvisTitre">PARLENT DE NOUS</span></h2>
+            <div class="AvisBar"></div>
+
+            <div class="avisgoogleContainer">
+                <div class="EnergieFranceProfil">
+                    <div class="EnergieFranceProfilText">
+                        <h3>EnergieFrance</h3>
+                        <span class="starsContainer">
+                            <h2>4.6</h2>
+                            <span class="ceNzKf" role="img" aria-label="4,6 étoiles">
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc"></span>
+                                <span class="rFrJzc UpDOYb"></span>
+                            </span>
+                        </span>
+                        <h4>Basé sur 39 avis</h4>
+                        <p>powered by
+                        <span style="color:#6186ec!important">G</span><span style="color:#cd523f!important">o</span><span style="color:#eabe43!important">o</span><span style="color:#6186ec!important">g</span><span style="color:#63a45d!important">l</span><span style="color:#cd523f!important">e</span></p>
+                    </div>
+                    <img src="./assets/logoGoogleEnergieFrance.png" alt="photoProfil ENGF">
+                </div>
+
+                <div class="carousel">
+                    <img src="./assets/arrow.png" alt="précedent"  class="arrow" onclick="prevSlide()">
+                    <div class="carousel-container">
+                        <div class="carousel-images" id="carouselImages">
+                            <img src="avis/image1.png" alt="image1">
+                            <img src="avis/image2.png" alt="image2">
+                            <img src="avis/image3.png" alt="image3">
+                            <img src="avis/image4.png" alt="image4">
+                            <img src="avis/image5.png" alt="image5">
+                            <img src="avis/image6.png" alt="image6">
+                        </div>
+                    </div>
+                    <img src="./assets/arrow1.png" alt="suivant" class="arrow" onclick="nextSlide()">
+                </div>
+            </div>
+
+            <div class="dots-container">
+                <div class="dot focusDot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>            
+        </div>
+    </div>
+
+    <div class="logoAides">
+        <div class="logoAidesContainer">
+            <img class="tva" src="./assets/tva.png" alt="Logo tva 5.5">
+            <img class="anha" src="./assets/anha.png" alt="Logo Anha">
+            <img class="mpr" src="./assets/Ma-prime-renov 1.png" alt="Logo ma prime renov">
+            <img class="tauxzero" src="./assets/taux0.jpg" alt="Logo pret taux 0">
+        </div>
+    </div>
+
+    <div class="butonTp butonTpUp">
+        <p>Êtes vous éligible ? Découvrez le montant de vos aides ! </p>
+        <a href="#tpbot">Vérifier Mon éligibilité</a>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <a href="#headerTp" class="footer-link">EnergieFrance</a> - 
+            <a href="#" class="footer-link">Tous droits réservés</a> - 
+            <a href="mentionLegal.html" class="footer-link">Mentions légales</a> - 
+            <a href="politiqueConfidentialite.html" class="footer-link">Politique de confidentialité</a> - 
+            <a href="cgu.html" class="footer-link">CGU</a>
+        </div>        
+    </footer>
+</body>
+</html>
