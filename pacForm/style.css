@@ -1114,7 +1114,35 @@ th {
 .intermediaires { background-color: #d1c4e9; }
 .superieurs { background-color: #f8bbd0; }
 
+.NosClientsParlent{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #22234A;
+    z-index: 900 !important;
+}
 
+.NosClientsParlentContainer{
+    max-width: 1280px;
+    width: 100%;
+    margin: 24px;
+}
+
+
+.NosClientsParlentContainer h2{
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0px;
+    line-height: 38px;
+}
+
+.NosClientsParlentContainer .AvisTitre{
+    color: #0A7CFF;
+}
 
 
 @media (max-width: 1700px){
@@ -1171,6 +1199,17 @@ th {
     
     .AvisBar{
         width: 632px;
+    }
+
+
+    .NosClientsParlentContainer{
+        max-width: 947px;
+    }
+
+
+    .NosClientsParlentContainer h2{
+        font-size: 28px;
+        line-height: 38px;
     }
 }
 
@@ -1496,6 +1535,16 @@ th {
 
     .section2 .container .AvisBar {
         width: 628px;
+    }
+
+    .NosClientsParlentContainer{
+        max-width: 631px;
+    }
+
+
+    .NosClientsParlentContainer h2{
+        font-size: 26px;
+        line-height: 38px;
     }
 }
 
@@ -1954,12 +2003,14 @@ th {
 
     .SectionText, .avisGoogle, .section1, .banner, .stats, .aides, .logoAides, .butonTpUp, .pompeChaleur, .partenaire, .section2{
         position: relative;
-        top: -116px;
+        /* top: -116px; */
+        top: -16px;    /* suite a ajout de Nos client section */
     }
 
     .section2{
         position: relative;
-        top: -78px;
+        /* top: -78px; */
+        top: 32px;  /* suite a ajout de Nos client section */
     }
 
 
