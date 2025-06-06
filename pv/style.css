@@ -1157,6 +1157,110 @@ th {
     color: #0A7CFF;
 }
 
+
+
+
+
+
+
+
+.bannerSection {
+  display: flex;
+  align-items: stretch;  /* enfants prennent toute la hauteur */
+  justify-content: space-between;
+  background-color: #fff;
+  height: auto; /* ou min-height si tu veux */
+  box-sizing: border-box;
+  overflow: hidden; /* évite débordement global */
+}
+
+.banner-text {
+  flex: 1 1 40%;
+  margin: 24px 24px 48px 24px;
+  position: relative;
+  left: 100px;
+}
+
+.banner-text h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
+    margin-top: 8px;
+}
+
+.banner-text .highlight {
+    background: linear-gradient(to right, #ef7736, #f8b437);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Pour compatibilité */
+    color: transparent;    /* Fallback propre */
+    font-weight: bold;
+}
+
+
+.checklistChecked {
+    margin-top: 1rem;
+    padding: 0px;
+}
+
+.checklistChecked li {
+    list-style: none;
+    margin-bottom: 0.6rem;
+    font-size: 19px;
+    font-weight: 300;
+    text-align: justify;
+    text-justify: inter-word;
+    word-spacing: normal;
+    hyphens: 4px;
+}
+
+.checklistChecked li::before {
+    content: "✅";
+    margin-right: 0.5rem;
+    color: green;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+    
+
+.banner-img {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.banner-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  clip-path: polygon(
+    10% 0%, 100% 0%, 100% 100%, 0% 100%
+  );
+}
+.corectUp{
+position: relative;
+top: -2px;
+}
+
+
+
+
+
+
+
 @media (max-width: 1700px){
     .home{
         background-color: rgb(255, 255, 255);
@@ -1164,6 +1268,19 @@ th {
     }
 }
 
+
+@media (max-width: 1492px){
+    .banner-img {
+        flex: 1 1 35%;
+    }
+
+    .banner-text {
+        flex: 1 1 50%;
+        margin: 24px 24px 48px 24px;
+        position: relative;
+        left: 72px;
+    }
+}
 
 @media (max-width: 1320px) {
 
@@ -1495,6 +1612,29 @@ th {
     .section1{
         background-size: 200%;
     }
+
+
+    .banner-img {
+        flex: 1 1 35%;
+    }
+
+    .banner-text {
+        left: 42px;
+    }
+
+    .banner-text h1{
+        font-size: 28px;
+    }
+
+    .banner-text li{
+        font-size: 18px;
+    }
+
+    .cta-button {
+        margin-top: 1.25rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 18px;
+    }
 }
 
 
@@ -1563,6 +1703,56 @@ th {
     .NosClientsParlentContainer h2{
         font-size: 26px;
         line-height: 38px;
+    }
+
+
+    .bannerSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    }
+
+    .banner-img {
+        flex: 1 1 35%;
+    }
+
+    .banner-text {
+        left: 0px;
+        max-width: 560px;
+        width: auto;
+        margin-bottom: 24px;
+    }
+
+    .banner-text h1{
+        font-size: 28px;
+    }
+
+    .banner-text li{
+        font-size: 18px;
+    }
+
+    .cta-button {
+        margin-top: 16px;
+        padding: 8px 16px;
+        font-size: 18px;
+        width: 248px;
+        text-align: center;
+        margin-left: calc(50% - 140px);
+    }
+
+    .banner-img img {
+        min-height: 320px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        clip-path: none;
     }
 }
 
