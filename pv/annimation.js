@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 animationQueue.push(entry.target);
                 observer.unobserve(entry.target);
                 if (!isAnimating && animationQueue.length === 1) {
-                    scrollDown();
+                    startNextAnimation();
                 }
             }
         });

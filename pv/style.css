@@ -12,7 +12,6 @@ body{
     overflow-x: hidden;
 }
 
-
 .tp{
     height: 0px;
     width: 0px;
@@ -153,7 +152,7 @@ body{
 }
 
 .logo4{
-    width: 65px;
+    width: 152px;
 }
 
 .logo{
@@ -275,11 +274,12 @@ footer{
 }
 
 .SectionText div{
-    max-width: 1280px;
+    max-width: 900px;
+    margin-bottom: 24px;
 }
 
 .SectionText h3{
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 500;
 
 }
@@ -287,6 +287,8 @@ footer{
 .SectionText p{
     font-size: 21px;
     text-align: justify;
+    line-height: 1.4em; /* Réduit l’interlignage */
+    margin-bottom: 8px;
 }
 
 .SectionText .bold{
@@ -297,6 +299,8 @@ footer{
     font-weight: 600;
     color: #0A7CFF;
 }
+
+
 
 
 
@@ -1277,7 +1281,7 @@ th {
     }
     
     .logo4{
-        width: 42px;
+        width: 100px;
     }
     
     .logo{
@@ -1615,7 +1619,7 @@ th {
         display: none;    }
     
     .logo4{
-        width: 42px;
+        width: 96px;
     }
     
     .logo{
@@ -1707,7 +1711,7 @@ th {
 
 
     .banner{
-        height: 320px;
+        height: 420px;
     }
 
 
@@ -2015,26 +2019,29 @@ th {
         overflow-x: scroll;
     }
 
-    .SectionText, .avisGoogle, .section1, .banner, .stats, .aides, .logoAides, .butonTpUp, .pompeChaleur, .partenaire, .section2{
+    .Up{
         position: relative;
-        /* top: -116px; */
-        top: -16px;    /* suite a ajout de Nos client section */
+        top: -126px;
     }
 
     .section2{
         position: relative;
-        /* top: -78px; */
-        top: 32px;  /* suite a ajout de Nos client section */
+        top: -96px;
+        padding-top: 32px;
+        padding-bottom: 24px;
     }
 
-
+    .UpEnd{
+        position: relative;
+        top: -128px !important;
+    }
 }
 
 
 
 @media (max-width: 496px) {
     .banner{
-        height: 260px;
+        height: 460px;
     }
 
     .title {
