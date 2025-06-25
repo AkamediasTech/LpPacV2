@@ -1285,6 +1285,7 @@ top: -2px;
 
 .fixedheight{
     min-height: 0% !important;
+    clip-path: none !important;
 }
 
 @media (max-width: 1700px){
