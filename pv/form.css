@@ -24,13 +24,14 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 32px;
+    padding-top: 0px;
     width: 100%;
     min-width: 480px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     box-shadow: 0 0 10px 10px rgba(0, 94, 188, 0.3);
-    min-height: 340px;
+    min-height: 400px;
 }
 
 /* Barre de progression */
@@ -116,13 +117,14 @@ button{
 }
 
 .option-btn {
-    padding: 12px 20px;
+    padding: 12px 17px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 144px;
 }
 
 .option-btn:hover {
@@ -174,8 +176,8 @@ button{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
-    margin-top: 96px;
-    margin-bottom: 96px;
+    margin-top: 16px;
+    margin-bottom: 16px;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -191,7 +193,7 @@ button{
     color: #009dff;
     font-size: 20px;
     font-weight: 700;
-    width: 320px;
+    width: 100%;
 }
 
 /* Conteneur du loader */
@@ -371,6 +373,7 @@ button{
     gap: 32px;
     max-width: 500px;
     width: max-content;
+    margin-top: 8px;
 }
 .circle-item {
     display: flex;
@@ -400,6 +403,26 @@ button{
 .activeCircle {
     background-color: #0A7CFF !important;
     color: white !important;
+}
+
+
+.bannerMsg {
+    position: relative;
+    left: -32px;
+    width: calc(100% + 64px);
+    height: 42px;
+    color: #ffffff;
+    /* background-color: #0a4081; */
+    background-color: #1264c1;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    transition: color 2s ease;
+}
+
+.bannerMsg p{
+    position: relative;
+    top: -10px;
+    font-size: 18px;
 }
 
 
@@ -444,6 +467,7 @@ button{
     #form{
         margin: 0px;
         padding: 24px;
+        padding-top: 0%;
         max-width: auto;
     }
 
@@ -494,6 +518,20 @@ button{
 
     .trustPilot {
         min-height: 0px !important;
+    }
+
+    .bannerMsg {
+        left: -24px;
+        width: calc(100% + 48px);
+    }
+
+    .bannerMsg p {
+        top: -8px;
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 20px;
     }
   }
 

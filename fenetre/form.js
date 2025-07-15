@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let ville = "";
 
     const buttonTextTab = [
-        "",
+        "Suivant",
         "Obtenir mon estimation",
     ];
     
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             inputs[currentStep].classList.remove('active');
             currentStep++;
             console.log("count:", currentStep);
-            if (currentStep === 5){
+            if (currentStep === 4){
                 showLoaderAndNextStep();
             }else if (currentStep < inputs.length) {
                 inputs[currentStep].classList.add('active');
@@ -183,11 +183,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function nextText(){
         const loaderMessages = [
             "",
-            "Recherche de vos aides régionales",
-            `Bonne nouvelle ! ${ville} est éligible`, // Utilisation correcte des backticks
-            "",
             "Calcul des aides MaPrimeRénov",
             "Votre logement est éligible à MaPrimeRénov’",
+            "",
+            "Recherche de vos aides régionales",
+            `Bonne nouvelle ! ${ville} est éligible`, // Utilisation correcte des backticks
             "",
             "Envoi du formulaire en cours",
             "",
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 showError(input, 'Veuillez entrer un numéro de téléphone valide.');
                 isValid = false;
             }
-            if (currentStep === 0) {
+            if (currentStep === 4) {
                 ville = input.value;
                 console.log("Ville enregistrée :", ville);
             }
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append(key, answers[key]);
         });
 
-        fetch('https://techaka.app.n8n.cloud/webhook/09432390-e800-435f-8fc4-556500f618cf', {
+        fetch('https://techaka.app.n8n.cloud/webhook/a723a1d0-ebf2-4a7c-92b7-c09ae1cd840b', {
             method: 'POST',
             body: formData
         })

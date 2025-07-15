@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PV Workflow n8n</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Raleway', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      width: 300px;
+      text-align: center;
+    }
+
+    button {
+      background: linear-gradient(135deg, #00fff7, #00bcd4);
+      border: none;
+      color: #000;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 12px;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.8);
+    }
+
+    button:active {
+      transform: scale(1);
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Workflow Import PV</h1>
+    <input type="password" id="tokenInput" placeholder="Entrez le token d'accès" />
+    <br />
+    <button onclick="triggerWorkflow('0')">Mixte</button>
+    <button onclick="triggerWorkflow('2')">Spin8</button>
+    <button onclick="triggerWorkflow('1')">BatiWeb</button>
+  </div>
+  <footer>✨ Powered by Akamedias ✨</footer>
+
+  <script>
+    function triggerWorkflow(postTo) {
+      const token = document.getElementById("tokenInput").value.trim();
+
+      if (!token) {
+        alert("Veuillez entrer le token.");
+        return;
+      }
+
+      if (token.slice(0, 9) !== "akamedias"){
+        alert("mauvais token")
+        return;
+      };
+
+      if ((parseInt(token.slice(-4), 10) ^ 995) !== 1034){
+        alert("mauvais token"); 
+        return;
+      } 
+
+      if (token.length !== 13){
+        alert("mauvais token"); 
+        return;
+      }
+
+      const url = `https://techaka.app.n8n.cloud/webhook/dd5595f5-9d27-46a3-85a5-596c0752d1fe`;
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "postTo": `${postTo}`
+        }
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("✅ Workflow déclenché avec succès !");
+        } else {
+          alert("❌ Échec de l'appel du workflow (erreur ou token incorrect).");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("❌ Erreur réseau.");
+      });
+    }
+  </script>
+</body>
+</html>

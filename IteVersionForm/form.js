@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let buttonTextCounter = 0;
     let displayStepCounter = 1;
     let ville = "";
+    let type_bien = "";
+    let vous_etes = "";
 
     const buttonTextTab = [
         "",
@@ -54,6 +56,16 @@ document.addEventListener('DOMContentLoaded', function () {
             if (currentStep === 5){
                 showLoaderAndNextStep();
             }else if (currentStep < inputs.length) {
+
+                if (currentStep === 2) {
+                    type_bien = value;
+                    console.log("type bien :", type_bien);
+                }
+                if (currentStep === 3) {
+                    vous_etes = value;
+                    console.log("vous etes :", vous_etes);
+                }
+
                 inputs[currentStep].classList.add('active');
                 toggleNextButtonVisibility();
             } else {
@@ -245,6 +257,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 ville = input.value;
                 console.log("Ville enregistrée :", ville);
             }
+            if (input.required) {
+                if ((input.type === 'checkbox' || input.type === 'radio') && !input.checked) {
+                    showError(input, 'Ce champ est requis.');
+                    isValid = false;
+                } else if (input.type !== 'checkbox' && input.type !== 'radio' && !input.value.trim()) {
+                    showError(input, 'Ce champ est requis.');
+                    isValid = false;
+                }
+            }
             
         }
         return isValid;
@@ -252,6 +273,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showError(input, message) {
         console.log(`Ajout d'une erreur pour ${input.name}: ${message}`);
+
+        // === Cas particulier : checkbox ===
+        if (input.type === 'checkbox' && input.id === 'consent') {
+            const errorSpan = document.getElementById('consent-error');
+            if (errorSpan) {
+                errorSpan.style.display = 'inline';
+            }
+
+            // Supprimer le message d'erreur quand on coche la case
+            input.addEventListener('change', function clearCheckboxError() {
+                if (input.checked && errorSpan) {
+                    errorSpan.style.display = 'none';
+                    input.removeEventListener('change', clearCheckboxError);
+                }
+            });
+
+            return; // Ne pas exécuter le reste pour une checkbox
+        }
     
         // Stocker l'ancien placeholder si ce n'est pas déjà fait
         if (!input.dataset.placeholder) {
@@ -292,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             console.log('Données envoyées:', data);
             finalizeForm();
+            sendS2SPixelIfNeeded();
         })
         .catch(error => {
             console.error('Erreur:', error);
@@ -330,6 +370,25 @@ document.addEventListener('DOMContentLoaded', function () {
             errorMessage.style.display = 'flex';
             errorMessage.style.opacity = '1';
         }, randomDelay());
+    }
+
+    function sendS2SPixelIfNeeded() {
+        const params = new URLSearchParams(window.location.search);
+        const var_oc = params.get("var_oc");
+
+        if (!var_oc) return; // Si pas de var_oc, on ne fait rien
+        if (vous_etes === "Locataire") return;
+        if (type_bien === "Appartement") return;
+
+        fetch(`https://publisher.api.optincollect.com/s2s/lead.json?uid=auto&s2s=${encodeURIComponent(var_oc)}`)
+            .then(res => {
+            if (res.ok) {
+                console.log("Pixel S2S envoyé avec succès.");
+            } else {
+                console.warn("Erreur lors de l'envoi du pixel S2S :", res.status);
+            }
+            })
+            .catch(err => console.error("Erreur requête S2S :", err));
     }
     
 
