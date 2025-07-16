@@ -927,7 +927,7 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 64px;
+    gap: 96px;
 }
 
 .logoAides div .tva{
@@ -1244,6 +1244,8 @@ th {
     content: "✅";
     margin-right: 0.5rem;
     color: green;
+    position: relative;
+    top: -4px;
 }
 
 .cta-button {
@@ -2101,7 +2103,7 @@ top: -2px;
     }
     
     .logoAidesContainer {
-        gap: 32px;
+        gap: 48px;
     }
     
 

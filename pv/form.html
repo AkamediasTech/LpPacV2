@@ -72,8 +72,37 @@
         overflow: hidden;
         min-height: calc(100vh - 330px);
     }
+
+    .checklistChecked {
+        margin: 24px 8px 0px 8px;
+        text-align: left;
+
+        /* background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 32px;
+        padding-top: 0px;
+        min-width: 240px;
+        box-shadow: 0 0 10px 10px rgba(0, 94, 188, 0.3);
+        min-height: 200px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column; */
+    }
     
+    .checklistChecked li{
+        font-size: 19px;
+        margin-bottom: 4px;
+        text-align: left;
+    }
+
+    .checklistChecked li:last-child{
+        margin-bottom: 0px;
+    }
+
     @media (max-width: 1100px) {.bannerSection{min-height: calc(100vh - 283px);}}
+    @media (max-width: 980px) {.checklistChecked li{font-size: 16px;}}
     @media (max-width: 768px) {.bannerSection{min-height: calc(100vh - 250px);}}
     @media (max-width: 496px) {footer{position: relative;top: 0px !important;}}
 
@@ -104,6 +133,12 @@
     </header>
 
     <section class="bannerSection">
+        <ul class="checklistChecked">
+            <li>Jusqu’à 100% d’économies sur votre facture d’électricité</li>
+            <li>Aides financières selon le programme de l’État</li>
+            <li>Simulation du droit à la subvention et coût des travaux</li>
+            <li>Déblocage immédiat des aides, utilisables ultérieurement</li>
+        </ul>
         <div class="Formulaire-container">
             <form id="form">
                 <div class="bannerMsg"><p>Testez votre éligibilité en 30 secondes</p></div>
@@ -123,7 +158,7 @@
                 </div>
 
                 <div class="input-container selection-step active">
-                    <label>Choisissez votre estimation :</label>
+                    <label>Choisissez votre estimation:</label>
                     <div class="button-group">
                         <button type="button" class="option-btn" data-value="Aides" data-step="0" style="width: 146px !important;">Simuler aides<br>
                             <svg style="margin-top: 12px;" xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="500 700 1000 500">
@@ -194,7 +229,7 @@
 
                 <!-- Type de logement -->
                 <div class="input-container selection-step">
-                    <label>Votre logement :</label>
+                    <label>Votre logement:</label>
                     <div class="button-group">
                         <button type="button" class="option-btn" data-value="Appartement" data-step="1">Appartement <br>
                             <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-icon lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
@@ -207,7 +242,7 @@
 
                 <!-- Vous êtes -->
                 <div class="input-container selection-step">
-                    <label>Vous êtes :</label>
+                    <label>Vous êtes:</label>
                     <div class="button-group">
                         <button type="button" class="option-btn" data-value="Locataire" data-step="2">Locataire <br>
                             <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-minus-icon lucide-calendar-minus"><path d="M16 19h6"/><path d="M16 2v4"/><path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"/><path d="M3 10h18"/><path d="M8 2v4"/></svg>
@@ -220,7 +255,7 @@
 
                 <!-- Type de chauffage -->
                 <div class="input-container selection-step">
-                    <label>Système de chauffage actuel :</label>
+                    <label>Système de chauffage actuel:</label>
                     <div class="button-group">
                         <button type="button" class="option-btn" data-value="Fioul" data-step="3">Fioul <br>
                             <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fuel-icon lucide-fuel"><line x1="3" x2="15" y1="22" y2="22"/><line x1="4" x2="14" y1="9" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>
@@ -239,7 +274,7 @@
 
                 <!-- Superficie -->
                 <div class="input-container selection-step">
-                    <label>Superficie de votre habitation :</label>
+                    <label>Superficie de votre habitation:</label>
                     <div class="button-group">
                         <button type="button" class="option-btn" data-value="0-100m2" data-step="4">0 à 100m²</button>
                         <button type="button" class="option-btn" data-value="100-150m2" data-step="4">100 à 150m²</button>
@@ -277,9 +312,8 @@
                     <p id="loader-text"></p>
                 </div>
 
-
-                <img class="trustPilot fixedheight" src="./assets/trustpilot.png" alt="trustPilot">
                 <div id="checklist-container-Js-annimation"></div>
+                <img class="trustPilot fixedheight" src="./assets/trustpilot.png" alt="trustPilot">
             </form>
         </div>
     </section>
@@ -287,8 +321,7 @@
     <div class="logoAides Up">
         <div class="logoAidesContainer">
             <img class="tva" src="./assets/tva.png" alt="Logo tva 5.5">
-            <img class="anha" src="./assets/anha.png" alt="Logo Anha">
-            <img class="mpr" src="./assets/Ma-prime-renov 1.png" alt="Logo ma prime renov">
+            <img class="anha" src="./assets/RGE.png" alt="Logo Anha">
             <img class="tauxzero" src="./assets/taux0.jpg" alt="Logo pret taux 0">
         </div>
     </div>

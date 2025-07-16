@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let type_bien = "";
     let vous_etes = "";
     let _aidesOrTravaux = "";
+    let WichStep = 1;
 
 
     const messagesHeader = [
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 inputs[currentStep].classList.add('active');
                 toggleNextButtonVisibility();
             } else {
-                showLoader();
+                showChecklist();
                 sendFormData();
             }
         });
@@ -99,16 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
             buttonText();
 
             console.log("Étape actuelle:", currentStep);
-    
-            let delayDiv = 0; // Valeur par défaut
+            delay = 0;
             if (shouldShowLoader) {
-                showLoader();
-                const delay = randomDelay();
-                delayDiv = delay;
-                setTimeout(() => {
-                    nextText();
-                    passToSucess();
-                }, delay / 2);
+                showChecklist();
+                delay = loaderFonction();
             }
     
             setTimeout(() => {
@@ -123,22 +118,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     toggleBannerMessage();
                 }
                 if (shouldShowLoader) {
-                    hideLoader();
+                    hideChecklist();
                 }
-            }, delayDiv);
+            }, delay);
         }
     });
-    
 
     function showLoaderAndNextStep() {
-        showLoader();
-        const delay = randomDelay(); 
+        showChecklist();
+        delay = loaderFonction();
         setTimeout(() => {
-            nextText();
-            passToSucess(); 
-        }, delay / 2);
-        setTimeout(() => {
-            hideLoader(); 
+            hideChecklist(); 
             if (currentStep < inputs.length) {
                 inputs[currentStep].classList.add('active');
                 toggleNextButtonVisibility();
@@ -148,6 +138,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, delay);
     }   
+
+    function loaderFonction() {
+        const delay = randomDelay();
+        setTimeout(() => {
+            clearChecklist("checklist-container-Js-annimation");
+            const msg_loader = document.getElementById('msg_loader'); 
+            msg_loader.style.display = 'flex';
+            const checklist_container_Js_annimation = document.getElementById('checklist-container-Js-annimation'); 
+            checklist_container_Js_annimation.style.display = 'none';
+            nextText();
+            passToSucess();
+        }, delay - 2500);
+        return(delay);
+    }
 
     function showLoader() {
         const loaderContainer = document.getElementById('loader-container'); 
@@ -192,6 +196,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 200);
     }
 
+    function showChecklist() {
+        const loaderContainer = document.getElementById('loader-container'); 
+
+        document.querySelectorAll('.active').forEach(el => {
+            el.style.display = 'none';
+            el.style.opacity = '0';
+        });
+        nextBtn.style.display = 'none';
+        simulateChecklist("checklist-container-Js-annimation");
+        document.body.style.overflow = "hidden";
+
+        setTimeout(() => {
+            loaderContainer.style.opacity = '1';
+        }, 50);   
+    }
+
+    function hideChecklist() {
+        const msg_loader = document.getElementById('msg_loader'); 
+
+        msg_loader.style.display = 'none';
+
+        nextText();
+        passToSucessNone();
+        WichStep ++;
+
+        setTimeout(() => {
+            document.body.style.overflow = "auto";
+
+            document.querySelectorAll('.active').forEach(el => {
+            el.style.display = 'true';
+            el.style.opacity = '1';
+            });
+        }, 200);
+    }
+
+
     function passToSucess() {
         const loaderContainer = document.getElementById('loader-container');
         const okCircleFilled = document.getElementById('ok-circle-filled'); 
@@ -213,14 +253,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function nextText(){
         const loaderMessages = [
+            // "",
+            // "Recherche de vos aides régionales",
+            // `Bonne nouvelle ! ${ville} est éligible`,
+            // "",
+            // "Calcul des aides MaPrimeRénov",
+            // "Votre logement est éligible à MaPrimeRénov’",
+            // "",
+            // "Envoi du formulaire en cours",
+            // "",
+            // ""
             "",
-            "Recherche de vos aides régionales",
-            `Bonne nouvelle ! ${ville} est éligible`, // Utilisation correcte des backticks
+            `Bonne nouvelle ! ${ville} est éligible`,
             "",
-            "Calcul des aides MaPrimeRénov",
             "Votre logement est éligible à MaPrimeRénov’",
-            "",
-            "Envoi du formulaire en cours",
             "",
             ""
         ];
@@ -344,65 +390,54 @@ document.addEventListener('DOMContentLoaded', function () {
         nextBtn.style.display = isSelectionStep ? 'none' : 'block';
     }
 
+    async function clearChecklist(containerId) {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = '';
+        }else return;
+    }
+
 
 
     async function simulateChecklist(containerId) {
-        const steps = [
-            "Vérification du code postal",
-            "Vérification du profil client",
-            "Vérification des aides disponibles",
-            "Vérification des installateurs",
-            "Vérification des remises applicables"
-        ];
+        const checklist_container_Js_annimation = document.getElementById('checklist-container-Js-annimation'); 
+        checklist_container_Js_annimation.style.display = 'flex';
+        let steps = [];
+
+        if (WichStep === 1 && _aidesOrTravaux === "Aides") {
+            steps = [
+                "Vérification de la géolocalisation",
+                "Recherche des aides disponibles dans votre région"
+        ];} 
+        else if (WichStep === 1 && _aidesOrTravaux === "Travaux") {
+            steps = [
+                "Vérification de la géolocalisation",
+                "Recherche des entreprises RGE à proximité"
+        ];}
+        else if (WichStep === 2 && _aidesOrTravaux === "Aides") {
+            steps = [
+                "Analyse des caractéristiques de votre logement",
+                "Prise en compte de votre statut",
+                "Adaptation des aides selon votre profil"
+        ];} 
+        else if (WichStep === 2 && _aidesOrTravaux === "Travaux") {
+            steps = [
+                "Analyse des travaux envisagés",
+                "Vérification des conditions d’éligibilité",
+                "Sélection d’artisans RGE pour votre projet"
+        ];}
+        else if (WichStep === 3) {
+            steps = [
+                "Analyse de votre dossier",
+                "Calcul des aides disponibles",
+                "Sélection des professionnels RGE",
+                "Application des remises disponibles",
+                "Préparation de votre estimation personnalisée"
+            ];
+        }
 
         const container = document.getElementById(containerId);
         if (!container) return;
-
-        // Injecter le style une seule fois
-        const style = document.createElement('style');
-        style.textContent = `
-            .checklist-item-Js-annimation {
-            display: flex;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            font-size: 18px;
-            margin-bottom: 15px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            }
-            .loader-checklist {
-            border: 3px solid #d3eaff;
-            border-top: 3px solid #007bff;
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-            }
-            .check-Js-annimation {
-            color: green;
-            font-weight: bold;
-            font-size: 21px;
-            margin-right: 10px;
-            }
-            @keyframes spin {
-            to { transform: rotate(360deg); }
-            }
-
-            #checklist-container-Js-annimation{
-            display: flex;
-            flex-direction: column;
-            margin-top: 24px;
-            }
-
-            @media (max-width: 768px) {
-                .checklist-item-Js-annimation {
-                    font-size: 16px;
-                    margin-bottom: 12px;
-                }
-            }
-        `;
-        document.head.appendChild(style);
 
         // Fonction utilitaire pour temporiser
         const wait = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -539,6 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
             inputs.forEach(input => input.style.display = 'none');
             nextBtn.style.display = 'none';
             containerCricle.style.display = 'none';
+            document.querySelector('.trustPilot').style.marginTop = '0';
             if (answers.step1 !== "Appartement" && answers.step2 !== "Locataire") {
                 console.log("validation");
                 fbq('track', 'Lead');
@@ -571,6 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
             inputs.forEach(input => input.style.display = 'none');
             nextBtn.style.display = 'none';
             containerCricle.style.display = 'none';
+            document.querySelector('.trustPilot').style.marginTop = '0';
 
             setTimeout(() => {
                 const checklistContainer = document.getElementById('checklist-container-Js-annimation');
@@ -605,7 +642,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function randomDelay() {
-        return 3000;
+        return 5700;
     }
     toggleNextButtonVisibility();
 });
