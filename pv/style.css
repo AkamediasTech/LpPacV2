@@ -919,6 +919,7 @@ footer{
     align-items: center;
     justify-content: center;
     border-top: 2px solid #ECECEC;
+    border-bottom: 2px solid #ECECEC;
 }
 
 .logoAidesContainer {
@@ -1204,7 +1205,7 @@ th {
 }
 
 .banner-text h1 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 24px;
     margin-top: 8px;
 }
@@ -1227,13 +1228,13 @@ th {
 .checklistChecked li {
     list-style: none;
     margin-bottom: 0.6rem;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 300;
     /* text-justify: auto;
     word-spacing: 2px;
     word-break: break-all; */
 
-    text-align: justify;
+    text-align: left;
     text-justify: inter-character;
 
     display: flex;
@@ -1291,6 +1292,14 @@ top: -2px;
 }
 
 
+.mobile {
+    display: none;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
 
 @media (max-width: 1700px){
     .home{
@@ -1301,12 +1310,7 @@ top: -2px;
 
 
 @media (max-width: 1492px){
-    .banner-img {
-        flex: 1 1 35%;
-    }
-
     .banner-text {
-        flex: 1 1 50%;
         margin: 24px 24px 48px 24px;
         position: relative;
         left: 72px;
@@ -1650,7 +1654,7 @@ top: -2px;
 
 
     .banner-img {
-        flex: 1 1 35%;
+        flex: 1 1 45%;
     }
 
     .banner-text {
@@ -1658,11 +1662,11 @@ top: -2px;
     }
 
     .banner-text h1{
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .banner-text li{
-        font-size: 18px;
+        font-size: 19px;
     }
 
     .cta-button {
@@ -1773,38 +1777,74 @@ top: -2px;
 
     .banner-text {
         left: 0px;
-        max-width: 560px;
+        /* max-width: 560px; */
+        max-width: fit-content;
         width: auto;
-        margin-bottom: 24px;
+        margin: 12px;
+        margin-bottom: 0px;
+    }
+
+
+    .checklistChecked li:last-child{
+        margin-bottom: 0px;
+    }
+
+    .checklistChecked {
+        order: 0;
+    }
+
+    .banner-text {
+        order: 0;
     }
 
     .banner-text h1{
-        font-size: 28px;
+        font-size: 21px;
+        line-height: 28px;
+        text-align: center;
     }
 
     .banner-text li{
-        font-size: 18px;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .checklistChecked li::before {
+        top: -2px;
     }
 
     .cta-button {
-        margin-top: 16px;
+        /* margin-top: 16px;
         padding: 8px 16px;
         font-size: 18px;
         width: 248px;
         text-align: center;
-        margin-left: calc(50% - 124px);
+        margin-left: calc(50% - 124px); */
+        display: none;
     }
 
-    .banner-img img {
-        min-height: 320px;
+    .banner-img .hideimg {
+        /* min-height: 320px;
         width: 100%;
         height: auto;
         object-fit: cover;
         object-position: center;
         display: block;
         clip-path: none;
+        order: 99; */
+        opacity: 0;
+        height: 0px;
+        width: 100vw;
     }
 
+    .mobile {
+        display: flex;
+    }
+
+
+    .bannerSection .banner-text ul {
+        display: none;
+    }
 
 }
 
@@ -2108,21 +2148,21 @@ top: -2px;
     
 
     .logoAides div .tva{
-        width: 58.5px;
+        width: 64.35px;
     }
     
     .logoAides div .anha{
-        width: 65.25px;
+        width: 71.77px;
     }
     
     .logoAides div .mpr{
         position: relative;
-        width: 54px;
+        width: 59.4px;
         top: -4px;
     }
     
     .logoAides div .tauxzero{
-        width: 43px;
+        width: 47.5px;
     }
 
 

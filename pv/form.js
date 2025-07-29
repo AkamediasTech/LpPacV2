@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (currentStep === 1) {
                     _aidesOrTravaux = value;
                     console.log("chemin :", _aidesOrTravaux);
+                    modifierCircles();
                 }
 
                 inputs[currentStep].classList.add('active');
@@ -149,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
             checklist_container_Js_annimation.style.display = 'none';
             nextText();
             passToSucess();
-        }, delay - 2500);
+        }, delay - 3500);
         return(delay);
     }
 
@@ -264,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // "",
             // ""
             "",
-            `Bonne nouvelle ! ${ville} est éligible`,
+            `Bonne nouvelle! ${ville} est éligible à 1400€ d'aides`,
             "",
             "Votre logement est éligible à MaPrimeRénov’",
             "",
@@ -492,9 +493,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const label = document.querySelector('label[for="nom"]');
         setTimeout(() => {
             if (_aidesOrTravaux === "Aides"){
-                label.textContent = "Recevoir le detail de mes aides";
+                label.textContent = "Recevoir le detail de mes aides\u00A0:";
             }; if(_aidesOrTravaux === "Travaux"){
-                label.textContent = "Recevoir mon devis travaux";
+                label.textContent = "Recevoir mon devis travaux\u00A0:";
             }
         }, randomDelay());
     }
@@ -574,7 +575,7 @@ document.addEventListener('DOMContentLoaded', function () {
             inputs.forEach(input => input.style.display = 'none');
             nextBtn.style.display = 'none';
             containerCricle.style.display = 'none';
-            document.querySelector('.trustPilot').style.marginTop = '0';
+            // document.querySelector('.trustPilot').style.marginTop = '0';
             if (answers.step1 !== "Appartement" && answers.step2 !== "Locataire") {
                 console.log("validation");
                 fbq('track', 'Lead');
@@ -641,8 +642,22 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(err => console.error("Erreur requête S2S :", err));
     }
 
+    function modifierCircles() {
+        const circleItems = document.querySelectorAll('.containerCricle .circle-item');
+
+        if (circleItems.length >= 3) {
+            const firstText = circleItems[0].querySelector('.text');
+            if (firstText) {
+                firstText.textContent = 'Ville';
+            }
+            circleItems[1].style.display = 'flex';
+            circleItems[2].style.display = 'flex';
+        }
+    }
+
+
     function randomDelay() {
-        return 5700;
+        return 6900;
     }
     toggleNextButtonVisibility();
 });

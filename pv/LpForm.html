@@ -57,7 +57,10 @@
     footer{
         top: 0px !important;
     }
-    
+
+    @media (max-width: 1492px) {#form{min-width: 460px !important;}}
+    @media (max-width: 1124px) {#form{min-width: 400px !important;}}
+    @media (max-width: 946px) {.Formulaire-container{padding-top: 12px !important;}#form{min-width: 340px !important;}}
     @media (max-width: 496px) {body{background-color: #22234A !important;}footer{position: relative;top: -72px !important;}}
     </style>
 </head>
@@ -87,206 +90,187 @@
 
     <section class="bannerSection">
         <div class="banner-text">
-        <h1>
-            Panneaux photovoltaïque, <br />
-            <span class="highlight">Produisez Votre Propre Électricité et Réduisez Votre Facture.</span>
-        </h1>
-        <ul class="checklistChecked">
-            <li>Jusqu’à 100% d’économies sur votre facture d’électricité</li>
-            <li>Aides financières selon le programme de l’État</li>
-            <li>Simulation du droit à la subvention et coût des travaux</li>
-            <li>Déblocage immédiat des aides, utilisables ultérieurement</li>
-            <li>Recevez jusqu’à 11 000€ de subventions en 72h</li>
-        </ul>
-        <a href="#form" class="cta-button">Calculer mes aides financières</a>
+            <h1>
+                Simulateur panneaux solaires<br />
+                <span class="highlight">Produisez et économisez</span>
+            </h1>
+            <ul class="checklistChecked">
+                <li>Recevez jusqu’à 11 000€ de subventions en 72h</li>
+                <li>Jusqu’à 80% d’économies sur votre facture d’électricité</li>
+                <li>25% de plus-value sur votre maison</li>
+                <li>Simulez vos aides 2025 ou le coût des travaux</li>
+            </ul>
+            <a href="#form" class="cta-button">Calculer mes aides financières</a>
         </div>
         <div class="banner-img">
-        <img src="./assets/banner2.png" alt="Installation de panneaux photovoltaïques">
+        <img class="hideimg" src="./assets/banner2.png" alt="Installation de panneaux photovoltaïques">
         
 
-        <div class="Formulaire-container">
-            <form id="form">
-                <div class="bannerMsg"><p>Testez votre éligibilité en 30 secondes</p></div>
-                <div class="containerCricle">
-                    <div class="circle-item">
-                        <div class="circle activeCircle" id="circle-1">1</div>
-                        <p class="text">Ville</p>
+            <div class="Formulaire-container">
+                <form id="form">
+                    <div class="bannerMsg">
+                        <p>Testez et recevez votre simulation</p>
+                        <h6>Anah, CEE, MPR, Éco-PTZ</h6>
                     </div>
-                    <div class="circle-item">
-                        <div class="circle" id="circle-2">2</div>
-                        <p class="text">Logement</p>
+                    <div class="containerCricle">
+                        <div class="circle-item">
+                            <div class="circle activeCircle" id="circle-1">1</div>
+                            <p class="text">Selection</p>
+                        </div>
+                        <div class="circle-item">
+                            <div class="circle" id="circle-2">2</div>
+                            <p class="text">Logement</p>
+                        </div>
+                        <div class="circle-item">
+                            <div class="circle" id="circle-3">3</div>
+                            <p class="text">Finaliser</p>
+                        </div>
                     </div>
-                    <div class="circle-item">
-                        <div class="circle" id="circle-3">3</div>
-                        <p class="text">Finaliser</p>
-                    </div>
-                </div>
 
-                <div class="input-container selection-step active">
-                    <label>Choisissez votre estimation :</label>
-                    <div class="button-group">
-                        <button type="button" class="option-btn" data-value="Aides" data-step="0" style="width: 146px !important;">Simuler aides<br>
-                            <svg style="margin-top: 12px;" xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="500 700 1000 500">
-                                <g>
-                                    <path style="fill:#4A90E2;" d="M1316.39,843.165l-41.1-24.29v-108.66h19.3v-115.49h-180.14v115.49h19.3v25.01l-45.61-26.96   l-88.14-52.09l-497.72,294.16h168.43v362.232c0,51.201,41.507,92.708,92.708,92.708h473.153c51.201,0,92.708-41.507,92.708-92.708   V950.335h168.44L1316.39,843.165z M1000,1247.605c-96.86,0-175.67-78.8-175.67-175.67c0-96.86,78.81-175.66,175.67-175.66   s175.66,78.8,175.66,175.66C1175.66,1168.805,1096.86,1247.605,1000,1247.605z"/>
-                                    <path style="fill:#357ABD;" d="M1000,656.175v240.1c-96.86,0-175.67,78.8-175.67,175.66c0,96.87,78.81,175.67,175.67,175.67v157.67   H763.419c-51.202,0-92.708-41.507-92.708-92.708V950.335H502.28L1000,656.175z"/>
-                                    <path style="fill:#1A4788;" d="M1101.75,1129.185c-1.33,12.48-4.05,23.65-8.16,33.49c-4.12,9.84-9.29,18.12-15.51,24.84   s-13.39,11.84-21.51,15.36c-8.11,3.52-16.89,5.28-26.34,5.28c-1.93,0-3.82-0.08-5.7-0.22c-1.81,0.13-3.65,0.22-5.52,0.22   c-6.69,0-13.02-0.87-19.01-2.63c-5.55-1.6-10.8-3.97-15.75-7.09c-10.28-6.48-19.03-15.64-26.25-27.48   c-7.23-11.84-12.79-26.2-16.68-43.09c-1.72-7.49-3.07-15.39-4.03-23.69h-39.04l7.17-22.57h30.24c-0.11-3.45-0.17-6.94-0.17-10.51   c0-2.98,0.04-5.92,0.12-8.82h-37.36l7.17-22.57h31.72c0.97-8.71,2.36-16.97,4.18-24.77c3.89-16.64,9.48-30.85,16.76-42.61   c7.28-11.76,16.06-20.8,26.34-27.12c4.91-3.02,10.1-5.31,15.58-6.88c5.99-1.74,12.33-2.6,19.01-2.6c1.81,0,3.59,0.08,5.36,0.23   c1.93-0.15,3.88-0.23,5.86-0.23c8.78,0,17.15,1.84,25.09,5.52c7.95,3.68,15.09,8.84,21.43,15.48c6.33,6.64,11.67,14.56,16,23.76   c4.34,9.21,7.34,19.32,9,30.37h-25.06c-1.22-7.84-3.5-15.16-6.83-21.97c-3.33-6.8-7.5-12.72-12.5-17.76   c-5.01-5.04-10.76-9-17.26-11.88c-4.91-2.18-10.09-3.53-15.54-4.06c-8.28,0.76-15.92,3.15-22.92,7.18   c-0.55,0.32-1.1,0.65-1.64,0.99c-7.91,4.92-14.7,11.91-20.36,20.97c-6.06,9.69-10.73,21.77-14.01,36.25   c-1.35,5.97-2.42,12.35-3.21,19.13h85.3l-3.86,22.57h-83.02c-0.08,2.89-0.13,5.82-0.13,8.82c0,3.58,0.06,7.08,0.18,10.51h86.83   l-3.86,22.57h-81.25c0.77,6.23,1.78,12.12,3.02,17.69c3.28,14.64,7.95,26.93,14.01,36.85c5.7,9.34,12.48,16.55,20.36,21.63   c0.49,0.32,0.98,0.63,1.48,0.93c7.01,4.22,14.68,6.7,23.01,7.44c13.19-1.12,24.26-6.11,33.2-15c10.22-10.16,16.56-25,19-44.53   H1101.75z"/>
-                                    <polygon style="fill:#357ABD;" points="1294.59,594.725 1294.59,710.215 1275.29,710.215 1275.29,818.875 1133.75,735.225    1133.75,710.215 1114.45,710.215 1114.45,594.725  "/>
-                                </g>
-                            </svg>
-                        </button>
-                        <button type="button" class="option-btn" data-value="Travaux" data-step="0" style="width: 146px !important;">Devis travaux<br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="81 344.818 75 69.814">
-                            <g>
-                                <g>
-                                <path style="fill:#F76561;stroke:#252626;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
-                                    d="M132.896,414.632H85.77c-1.819,0-3.294-1.475-3.294-3.294v-60.745c0-1.819,1.475-3.294,3.294-3.294h47.127
-                                    c1.819,0,3.294,1.475,3.294,3.294v60.745C136.191,413.157,134.716,414.632,132.896,414.632z"/>
-                                <polygon style="fill:#FFFFFF;stroke:#252626;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
-                                    points="120.216,408.665 88.24,408.665 88.24,353.266 130.305,353.266 130.305,400.053"/>
-                                <rect x="96.49" y="344.818" style="fill:#83D9FF;stroke:#252626;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
-                                    width="25.686" height="10.948"/>
-                                <g>
-                                    <rect x="92.478" y="361.312" width="6.23" height="6.23" style="fill:#FFFFFF;stroke:#252626;stroke-width:2"/>
-                                    <rect x="92.478" y="373.331" width="6.23" height="6.23" style="fill:#FFFFFF;stroke:#252626;stroke-width:2"/>
-                                    <rect x="92.478" y="385.349" width="6.23" height="6.23" style="fill:#FFFFFF;stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="362.602" x2="121.627" y2="362.602" style="stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="366.249" x2="125.139" y2="366.249" style="stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="374.622" x2="121.627" y2="374.622" style="stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="378.269" x2="125.139" y2="378.269" style="stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="386.641" x2="121.627" y2="386.641" style="stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="390.288" x2="125.139" y2="390.288" style="stroke:#252626;stroke-width:2"/>
-                                    <rect x="92.478" y="397.031" width="6.23" height="6.23" style="fill:#FFFFFF;stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="398.323" x2="121.627" y2="398.323" style="stroke:#252626;stroke-width:2"/>
-                                    <line x1="102.646" y1="401.969" x2="125.139" y2="401.969" style="stroke:#252626;stroke-width:2"/>
-                                </g>
-                                <polygon style="fill:#FFFFFF;stroke:#252626;stroke-width:2;" points="130.305,400.053 120.216,408.665 120.216,400.053"/>
-                                </g>
-                                <g>
-                                <rect x="144.729" y="356.863" width="8.983" height="41.97"
-                                    style="fill:#83D9FF;stroke:#252626;stroke-width:2"/>
-                                <polygon style="fill:#FFFFFF;stroke:#252626;stroke-width:2;" points="144.729,398.833 149.22,406.852 153.712,398.833"/>
-                                <line x1="148.289" y1="404.64" x2="150.151" y2="404.64" style="stroke:#252626;stroke-width:2"/>
-                                <path d="M149.22,352.269c-2.48,0-4.491,2.011-4.491,4.491h8.983C153.712,354.28,151.701,352.269,149.22,352.269z"
-                                    style="fill:#F76561;stroke:#252626;stroke-width:2"/>
-                                <polyline points="144.729,360.717 157.531,360.717 157.531,375.526"
-                                    style="fill:none;stroke:#252626;stroke-width:2"/>
-                                <path d="M149.281,393.659c-1.021,0-1.848-0.828-1.848-1.849v-9.339c0-1.021,0.828-1.848,1.848-1.848
-                                        c1.021,0,1.848,0.828,1.848,1.848v9.339C151.13,392.831,150.302,393.659,149.281,393.659z"
-                                    style="fill:#FFFFFF;stroke:#252626;stroke-width:2"/>
-                                </g>
-                            </g>
-                            </svg>
-                        </button>
+                    <div class="input-container selection-step active">
+                        <label>Choisissez votre estimation&nbsp;:</label>
+                        <div class="button-group">
+                            <button type="button" class="option-btn devisTravaux" data-value="Aides" data-step="0">Mes aides 2025<br>
+                                <!-- <svg style="margin-top: 12px;" xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="500 700 1000 500">
+                                    <g>
+                                        <path style="fill:#4A90E2;" d="M1316.39,843.165l-41.1-24.29v-108.66h19.3v-115.49h-180.14v115.49h19.3v25.01l-45.61-26.96   l-88.14-52.09l-497.72,294.16h168.43v362.232c0,51.201,41.507,92.708,92.708,92.708h473.153c51.201,0,92.708-41.507,92.708-92.708   V950.335h168.44L1316.39,843.165z M1000,1247.605c-96.86,0-175.67-78.8-175.67-175.67c0-96.86,78.81-175.66,175.67-175.66   s175.66,78.8,175.66,175.66C1175.66,1168.805,1096.86,1247.605,1000,1247.605z"/>
+                                        <path style="fill:#357ABD;" d="M1000,656.175v240.1c-96.86,0-175.67,78.8-175.67,175.66c0,96.87,78.81,175.67,175.67,175.67v157.67   H763.419c-51.202,0-92.708-41.507-92.708-92.708V950.335H502.28L1000,656.175z"/>
+                                        <path style="fill:#1A4788;" d="M1101.75,1129.185c-1.33,12.48-4.05,23.65-8.16,33.49c-4.12,9.84-9.29,18.12-15.51,24.84   s-13.39,11.84-21.51,15.36c-8.11,3.52-16.89,5.28-26.34,5.28c-1.93,0-3.82-0.08-5.7-0.22c-1.81,0.13-3.65,0.22-5.52,0.22   c-6.69,0-13.02-0.87-19.01-2.63c-5.55-1.6-10.8-3.97-15.75-7.09c-10.28-6.48-19.03-15.64-26.25-27.48   c-7.23-11.84-12.79-26.2-16.68-43.09c-1.72-7.49-3.07-15.39-4.03-23.69h-39.04l7.17-22.57h30.24c-0.11-3.45-0.17-6.94-0.17-10.51   c0-2.98,0.04-5.92,0.12-8.82h-37.36l7.17-22.57h31.72c0.97-8.71,2.36-16.97,4.18-24.77c3.89-16.64,9.48-30.85,16.76-42.61   c7.28-11.76,16.06-20.8,26.34-27.12c4.91-3.02,10.1-5.31,15.58-6.88c5.99-1.74,12.33-2.6,19.01-2.6c1.81,0,3.59,0.08,5.36,0.23   c1.93-0.15,3.88-0.23,5.86-0.23c8.78,0,17.15,1.84,25.09,5.52c7.95,3.68,15.09,8.84,21.43,15.48c6.33,6.64,11.67,14.56,16,23.76   c4.34,9.21,7.34,19.32,9,30.37h-25.06c-1.22-7.84-3.5-15.16-6.83-21.97c-3.33-6.8-7.5-12.72-12.5-17.76   c-5.01-5.04-10.76-9-17.26-11.88c-4.91-2.18-10.09-3.53-15.54-4.06c-8.28,0.76-15.92,3.15-22.92,7.18   c-0.55,0.32-1.1,0.65-1.64,0.99c-7.91,4.92-14.7,11.91-20.36,20.97c-6.06,9.69-10.73,21.77-14.01,36.25   c-1.35,5.97-2.42,12.35-3.21,19.13h85.3l-3.86,22.57h-83.02c-0.08,2.89-0.13,5.82-0.13,8.82c0,3.58,0.06,7.08,0.18,10.51h86.83   l-3.86,22.57h-81.25c0.77,6.23,1.78,12.12,3.02,17.69c3.28,14.64,7.95,26.93,14.01,36.85c5.7,9.34,12.48,16.55,20.36,21.63   c0.49,0.32,0.98,0.63,1.48,0.93c7.01,4.22,14.68,6.7,23.01,7.44c13.19-1.12,24.26-6.11,33.2-15c10.22-10.16,16.56-25,19-44.53   H1101.75z"/>
+                                        <polygon style="fill:#357ABD;" points="1294.59,594.725 1294.59,710.215 1275.29,710.215 1275.29,818.875 1133.75,735.225    1133.75,710.215 1114.45,710.215 1114.45,594.725  "/>
+                                    </g>
+                                </svg> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 12px;" height="54px" viewBox="0 -960 960 960" width="54px" fill="currentColor"><path d="M760-400v-260L560-800 360-660v60h-80v-100l280-200 280 200v300h-80ZM560-800Zm20 160h40v-40h-40v40Zm-80 0h40v-40h-40v40Zm80 80h40v-40h-40v40Zm-80 0h40v-40h-40v40ZM280-220l278 76 238-74q-5-9-14.5-15.5T760-240H558q-27 0-43-2t-33-8l-93-31 22-78 81 27q17 5 40 8t68 4q0-11-6.5-21T578-354l-234-86h-64v220ZM40-80v-440h304q7 0 14 1.5t13 3.5l235 87q33 12 53.5 42t20.5 66h80q50 0 85 33t35 87v40L560-60l-280-78v58H40Zm80-80h80v-280h-80v280Z"/></svg>                        </button>
+                            <button type="button" class="option-btn devisTravaux" data-value="Travaux" data-step="0">Devis travaux<br>
+                                <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 12px;" height="54px" viewBox="0 -960 960 960" width="54px" fill="currentColor"><path d="m620-284 56-56q6-6 6-14t-6-14L540-505q4-11 6-22t2-25q0-57-40.5-97.5T410-690q-17 0-34 4.5T343-673l94 94-56 56-94-94q-8 16-12.5 33t-4.5 34q0 57 40.5 97.5T408-412q13 0 24.5-2t22.5-6l137 136q6 6 14 6t14-6ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                
-    
-                <div class="input-container">
-                    <label for="codePostal">Vérifions votre éligibilité aux aides régionales</label>
-                    <div class="inputInLine">
-                        <input type="text" id="codePostal" name="codePostal" required pattern="\d{5}" placeholder="Code Postal" title="Le code postal doit être constitué de 5 chiffres.">
-                        <input type="text" id="Ville" name="Ville" placeholder="Ville" list="listeVilles" required>
-                        <datalist id="listeVilles"></datalist>
+                    
+        
+                    <div class="input-container">
+                        <label for="codePostal">Vérifions votre éligibilité aux aides régionales&nbsp;:</label>
+                        <div class="inputInLine">
+                            <input type="text" id="codePostal" name="codePostal" required pattern="\d{5}" placeholder="Code Postal" title="Le code postal doit être constitué de 5 chiffres.">
+                            <input type="text" id="Ville" name="Ville" placeholder="Ville" list="listeVilles" required>
+                            <datalist id="listeVilles"></datalist>
+                        </div>
                     </div>
-                </div>
-    
-                <!-- Type de logement -->
-                <div class="input-container selection-step">
-                    <label>Votre logement :</label>
-                    <div class="button-group">
-                        <button type="button" class="option-btn" data-value="Appartement" data-step="1">Appartement <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-icon lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
-                        </button>
-                        <button type="button" class="option-btn" data-value="Maison" data-step="1">Maison <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                        </button>
+        
+                    <!-- Type de logement -->
+                    <div class="input-container selection-step">
+                        <label>Votre logement&nbsp;:</label>
+                        <div class="button-group">
+                            <button type="button" class="option-btn" data-value="Appartement" data-step="1">Appartement <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-icon lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                            </button>
+                            <button type="button" class="option-btn" data-value="Maison" data-step="1">Maison <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-    
-                <!-- Vous êtes -->
-                <div class="input-container selection-step">
-                    <label>Vous êtes :</label>
-                    <div class="button-group">
-                        <button type="button" class="option-btn" data-value="Locataire" data-step="2">Locataire <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-minus-icon lucide-calendar-minus"><path d="M16 19h6"/><path d="M16 2v4"/><path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"/><path d="M3 10h18"/><path d="M8 2v4"/></svg>
-                        </button>
-                        <button type="button" class="option-btn" data-value="Propriétaire" data-step="2">Propriétaire <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-                        </button>
+        
+                    <!-- Vous êtes -->
+                    <div class="input-container selection-step">
+                        <label>Vous êtes&nbsp;:</label>
+                        <div class="button-group">
+                            <button type="button" class="option-btn" data-value="Locataire" data-step="2">Locataire <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-minus-icon lucide-calendar-minus"><path d="M16 19h6"/><path d="M16 2v4"/><path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"/><path d="M3 10h18"/><path d="M8 2v4"/></svg>
+                            </button>
+                            <button type="button" class="option-btn" data-value="Propriétaire" data-step="2">Propriétaire <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-    
-                <!-- Type de chauffage -->
-                <div class="input-container selection-step">
-                    <label>Système de chauffage actuel :</label>
-                    <div class="button-group">
-                        <button type="button" class="option-btn" data-value="Fioul" data-step="3">Fioul <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fuel-icon lucide-fuel"><line x1="3" x2="15" y1="22" y2="22"/><line x1="4" x2="14" y1="9" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>
-                        </button>
-                        <button type="button" class="option-btn" data-value="Gaz" data-step="3">Gaz <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame-icon lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-                        </button>
-                        <button type="button" class="option-btn" data-value="Électricité" data-step="3">Électricité <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-                        </button>
-                        <button type="button" class="option-btn" data-value="Autres" data-step="3">Autres <br>
-                            <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trees-icon lucide-trees"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></svg>
-                        </button>
+        
+                    <!-- Type de chauffage -->
+                    <div class="input-container selection-step">
+                        <label>Système de chauffage actuel&nbsp;:</label>
+                        <div class="button-group">
+                            <button type="button" class="option-btn" data-value="Fioul" data-step="3">Fioul <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fuel-icon lucide-fuel"><line x1="3" x2="15" y1="22" y2="22"/><line x1="4" x2="14" y1="9" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>
+                            </button>
+                            <button type="button" class="option-btn" data-value="Gaz" data-step="3">Gaz <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame-icon lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                            </button>
+                            <button type="button" class="option-btn" data-value="Électricité" data-step="3">Électricité <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                            </button>
+                            <button type="button" class="option-btn" data-value="Autres" data-step="3">Autres <br>
+                                <svg style="margin-top: 16px;" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trees-icon lucide-trees"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
-    
-                <!-- Superficie -->
-                <div class="input-container selection-step">
-                    <label>Superficie de votre habitation :</label>
-                    <div class="button-group">
-                        <button type="button" class="option-btn" data-value="0-100m2" data-step="4">0 à 100m²</button>
-                        <button type="button" class="option-btn" data-value="100-150m2" data-step="4">100 à 150m²</button>
-                        <button type="button" class="option-btn" data-value="150-200m2" data-step="4">150 à 200m²</button>
-                        <button type="button" class="option-btn" data-value="200m2+" data-step="4">+ de 200m²</button>
+        
+                    <!-- Superficie -->
+                    <div class="input-container selection-step">
+                        <label>Superficie de votre habitation&nbsp;:</label>
+                        <div class="button-group">
+                            <button type="button" class="option-btn" data-value="0-100m2" data-step="4">0 à 100m²</button>
+                            <button type="button" class="option-btn" data-value="100-150m2" data-step="4">100 à 150m²</button>
+                            <button type="button" class="option-btn" data-value="150-200m2" data-step="4">150 à 200m²</button>
+                            <button type="button" class="option-btn" data-value="200m2+" data-step="4">+ de 200m²</button>
+                        </div>
                     </div>
-                </div>
-    
-                <!-- Nom et prenom -->
-                <div class="input-container">
-                    <label for="nom">Recevoir l’estimation de mes aides 2025</label>
-                    <div class="inputInLine">
-                        <input type="text" id="nom" name="nom" placeholder="Nom" required>
-                        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+        
+                    <!-- Nom et prenom -->
+                    <div class="input-container">
+                        <label for="nom">Recevoir l’estimation de mes aides 2025&nbsp;:</label>
+                        <div class="inputInLine">
+                            <input type="text" id="nom" name="nom" placeholder="Nom" required>
+                            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                        </div>
+                        <div class="inputInLine inputInLineSpace">
+                            <input type="tel" id="telephone" name="telephone" placeholder="Téléphone" pattern="^\+?[0-9]{9,15}$" title="Le numéro de téléphone doit être valide (10 à 15 chiffres)." required>
+                            <input type="email" id="email" name="email" placeholder="Email" title="L'adresse mail doit être valide." required>    <!-- pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
+                        </div>
+                        <div class="consentDiv">
+                            <input type="checkbox" id="consent" name="consent" required style="width: 16px; height: 16px;">
+                            <label for="consent" style="font-size: 14px; color: #202020;">
+                                J'accepte la <a href="politiqueConfidentialite.html" target="_blank" style="color: #202020; text-decoration: underline;">politique de confidentialité</a>. <span id="consent-error" style="color: red; display: none;"> (champ requis)</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="inputInLine inputInLineSpace">
-                        <input type="tel" id="telephone" name="telephone" placeholder="Téléphone" pattern="^\+?[0-9]{9,15}$" title="Le numéro de téléphone doit être valide (10 à 15 chiffres)." required>
-                        <input type="email" id="email" name="email" placeholder="Email" title="L'adresse mail doit être valide." required>    <!-- pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
-                    </div>
-                    <div>
-                        <input type="checkbox" id="consent" name="consent" required style="width: 16px; height: 16px;">
-                        <label for="consent" style="font-size: 14px; color: #202020;">
-                            J'accepte la <a href="politiqueConfidentialite.html" target="_blank" style="color: #202020; text-decoration: underline;">politique de confidentialité</a>. <span id="consent-error" style="color: red; display: none;"> (champ requis)</span>
-                        </label>
-                    </div>
-                </div>
-    
-                <button type="button" id="nextBtn">Vérifier mon éligibilité</button>
+        
+                    <button type="button" id="nextBtn">Vérifier mon éligibilité</button>
 
-                <div class="msg_loader" id="msg_loader">
-                    <img class="fixedheight" id="ok-circle-filled" src="assets/ok-circle-filled.svg" alt="Validation" class="checkmark">
-                    <div id="loader-container" class="loader-container">
-                        <div class="loader"></div>
+                    <div class="msg_loader" id="msg_loader">
+                        <img class="fixedheight" id="ok-circle-filled" src="assets/ok-circle-filled.svg" alt="Validation" class="checkmark">
+                        <div id="loader-container" class="loader-container">
+                            <div class="loader"></div>
+                        </div>
+                        <p id="loader-text"></p>
                     </div>
-                    <p id="loader-text"></p>
-                </div>
 
-                <div id="checklist-container-Js-annimation"></div>
-                <img class="trustPilot fixedheight" src="./assets/trustpilot.png" alt="trustPilot">
-            </form>
-        </div>
+                    <div id="checklist-container-Js-annimation"></div>
+                    <!-- <img class="trustPilot fixedheight" src="./assets/trustpilot.png" alt="trustPilot"> -->
+                </form>
+            </div>
         </div>
     </section>
 
     <div class="butonTp corectUp Undisplay">
         <p>Faites le test gratuit pour connaître vos aides solaires.</p>
         <!-- <a target="_blank" href="index.html">Découvrir le photovoltaïques</a> -->
+    </div>
+
+    <div class="mobile">
+        <div class="banner-text">
+            <ul class="checklistChecked">
+                <li>Recevez jusqu’à 11 000€ de subventions en 72h</li>
+                <li>Jusqu’à 80% d’économies sur votre facture d’électricité</li>
+                <li>25% de plus-value sur votre maison</li>
+                <li>Simulez vos aides 2025 ou le coût des travaux</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="logoAides Up">
+        <div class="logoAidesContainer">
+            <img class="tva" src="./assets/tva.png" alt="Logo tva 5.5">
+            <img class="anha" src="./assets/RGE.png" alt="Logo Anha">
+            <img class="tauxzero" src="./assets/taux0.jpg" alt="Logo pret taux 0">
+        </div>
     </div>
 
     <div class="avisGoogle">
@@ -435,14 +419,6 @@
                     </iframe>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="logoAides Up">
-        <div class="logoAidesContainer">
-            <img class="tva" src="./assets/tva.png" alt="Logo tva 5.5">
-            <img class="anha" src="./assets/RGE.png" alt="Logo Anha">
-            <img class="tauxzero" src="./assets/taux0.jpg" alt="Logo pret taux 0">
         </div>
     </div>
 
