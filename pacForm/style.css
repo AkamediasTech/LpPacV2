@@ -1145,10 +1145,158 @@ th {
 }
 
 
+
+
+.bannerSection {
+  display: flex;
+  align-items: stretch;  /* enfants prennent toute la hauteur */
+  justify-content: space-between;
+  background-color: #fff;
+  height: auto; /* ou min-height si tu veux */
+  box-sizing: border-box;
+  overflow: hidden; /* évite débordement global */
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-text {
+  flex: 1 1 40%;
+  margin: 24px 24px 48px 24px;
+  position: relative;
+  left: 100px;
+}
+
+.banner-text h1 {
+    font-size: 28px;
+    margin-top: 8px;
+    margin-bottom: -4px;
+}
+
+.banner-text p{
+    margin-top: 0%;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 24px;
+}
+
+.banner-text .highlight {
+    background: linear-gradient(to right, #0a008a, hsl(233, 89%, 71%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Pour compatibilité */
+    color: transparent;    /* Fallback propre */
+    font-weight: bold;
+}
+
+
+.checklistChecked {
+    margin-top: 1rem;
+    padding: 0px;
+}
+
+.checklistChecked li {
+    list-style: none;
+    margin-bottom: 0.6rem;
+    font-size: 19px;
+    font-weight: 300;
+    /* text-justify: auto;
+    word-spacing: 2px;
+    word-break: break-all; */
+
+    text-align: left;
+    text-justify: inter-character;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.checklistChecked li::before {
+    content: "✅";
+    margin-right: 0.5rem;
+    color: green;
+    position: relative;
+    top: -4px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+    
+
+.banner-img {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.banner-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  clip-path: polygon(
+    10% 0%, 100% 0%, 100% 100%, 0% 100%
+  );
+}
+.corectUp{
+position: relative;
+top: -2px;
+}
+
+.fixedheight{
+    min-height: 0% !important;
+    clip-path: none !important;
+}
+
+
+.mobile {
+    display: none;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.arrowdown {
+    display: none;
+    animation: floatUpDown 1.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes floatUpDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+
 @media (max-width: 1700px){
     .home{
         background-color: rgb(255, 255, 255);
         background-size: 193%;
+    }
+}
+
+@media (max-width: 1492px){
+    .banner-text {
+        margin: 24px 24px 48px 24px;
+        position: relative;
+        left: 72px;
     }
 }
 
@@ -1479,6 +1627,34 @@ th {
     .AvisBar{
         width: 524px;
     }
+
+
+
+    .banner-img {
+        flex: 1 1 45%;
+    }
+
+    .banner-text {
+        left: 42px;
+    }
+
+    .banner-text h1{
+        font-size: 24px;
+    }
+
+    .banner-text p{
+        font-size: 16px;
+    }
+
+    .banner-text li{
+        font-size: 19px;
+    }
+
+    .cta-button {
+        margin-top: 1.25rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 18px;
+    }
 }
 
 
@@ -1545,6 +1721,127 @@ th {
     .NosClientsParlentContainer h2{
         font-size: 26px;
         line-height: 38px;
+    }
+
+
+
+
+    .bannerSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    position:static;
+    }
+
+    .banner-img {
+        flex: 1 1 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        background-image: url('assets/home.png');
+        background-position: center 160px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 320%;
+    }
+
+    .Undisplay {
+        display: none;
+    }
+
+    .banner-text {
+        left: 0px;
+        /* max-width: 560px; */
+        max-width: fit-content;
+        width: auto;
+        margin: 12px;
+        margin-bottom: 0px;
+    }
+
+
+    .checklistChecked li:last-child{
+        margin-bottom: 0px;
+    }
+
+    .checklistChecked {
+        order: 0;
+    }
+
+    .banner-text {
+        order: 0;
+    }
+
+    .banner-text h1{
+        font-size: 21px;
+        line-height: 28px;
+        text-align: center;
+
+        margin-bottom: 0%;
+    }
+
+    .banner-text p{
+        font-size: 15px;
+        line-height: 16px;
+        text-align: center;
+
+        margin-bottom: 8px;
+    }
+
+    .banner-text li{
+        font-size: 15px;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .checklistChecked li::before {
+        top: -2px;
+    }
+
+    .cta-button {
+        /* margin-top: 16px;
+        padding: 8px 16px;
+        font-size: 18px;
+        width: 248px;
+        text-align: center;
+        margin-left: calc(50% - 124px); */
+        display: none;
+    }
+
+    .banner-img .hideimg {
+        /* min-height: 320px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        clip-path: none;
+        order: 99; */
+        opacity: 0;
+        height: 0px;
+        width: 100vw;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+
+    .bannerSection .banner-text ul {
+        display: none;
+    }
+
+    .arrowdown {
+        display: flex;
+        position: relative;
+        top: 8px;
+        margin-bottom: 8px;
     }
 }
 
@@ -2001,7 +2298,7 @@ th {
         overflow-x: scroll;
     }
 
-    .SectionText, .avisGoogle, .section1, .banner, .stats, .aides, .logoAides, .butonTpUp, .pompeChaleur, .partenaire, .section2{
+    .SectionText, .avisGoogle, .section1, .banner, .stats, .aides, .butonTpUp, .pompeChaleur, .partenaire, .section2{
         position: relative;
         /* top: -116px; */
         top: -16px;    /* suite a ajout de Nos client section */

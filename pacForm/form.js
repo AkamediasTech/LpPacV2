@@ -9,10 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
     let buttonTextCounter = 0;
     let displayStepCounter = 1;
     let ville = "";
+    let type_bien = "";
+    let vous_etes = "";
+    let _aidesOrTravaux = "";
+    let WichStep = 1;
+
+
+    const messagesHeader = [
+        { text: 'Votre estimation est prête !', color: 'green', time: randomDelay() },
+        { text: 'Nous vous contacterons sous 24 h', color: '#1264c1', time: 4000 }
+    ];
+    let currentIndexHeader = 0;
 
     const buttonTextTab = [
         "",
-        "Obtenir mon estimation",
+        "",
+        "Obtenir mon estimation"
     ];
     
 
@@ -21,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     successMessage.classList.add('success-message');
     successMessage.innerHTML = `
         <div class="checkmark-animation">
-            <img src="assets/validate.svg" alt="Validation" class="checkmark">
+            <img src="assets/validate.svg" alt="Validation" class="checkmark fixedheight">
         </div>
         <p>Votre formulaire a été soumis avec succès !</p>
     `;
@@ -32,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     errorMessage.classList.add('error-message');
     errorMessage.innerHTML = `
         <div class="checkmark-animation">
-            <img src="assets/error.svg" alt="error" class="checkmark">
+            <img src="assets/error.svg" alt="error" class="checkmark fixedheight">
         </div>
         <p>Erreur lors de l'envoi du formulaire</p>
     `;
@@ -51,13 +63,29 @@ document.addEventListener('DOMContentLoaded', function () {
             inputs[currentStep].classList.remove('active');
             currentStep++;
             console.log("count:", currentStep);
-            if (currentStep === 5){
+            if (currentStep === 6){
                 showLoaderAndNextStep();
+                toggleBannerMessage();
             }else if (currentStep < inputs.length) {
+
+                if (currentStep === 2) {
+                    type_bien = value;
+                    console.log("type bien :", type_bien);
+                }
+                if (currentStep === 3) {
+                    vous_etes = value;
+                    console.log("vous etes :", vous_etes);
+                }
+                if (currentStep === 1) {
+                    _aidesOrTravaux = value;
+                    console.log("chemin :", _aidesOrTravaux);
+                    modifierCircles();
+                }
+
                 inputs[currentStep].classList.add('active');
                 toggleNextButtonVisibility();
             } else {
-                showLoader();
+                showChecklist();
                 sendFormData();
             }
         });
@@ -67,21 +95,16 @@ document.addEventListener('DOMContentLoaded', function () {
     nextBtn.addEventListener('click', () => {
         if (validateCurrentStep()) {
             const isLastStep = currentStep >= inputs.length - 1;
-            const shouldShowLoader = !(currentStep === 5);
+            const shouldShowLoader = !(currentStep === 6);
             displayStep();
+            aidesOrTravaux();
             buttonText();
 
             console.log("Étape actuelle:", currentStep);
-    
-            let delayDiv = 0; // Valeur par défaut
+            delay = 0;
             if (shouldShowLoader) {
-                showLoader();
-                const delay = randomDelay();
-                delayDiv = delay;
-                setTimeout(() => {
-                    nextText();
-                    passToSucess();
-                }, delay / 2);
+                showChecklist();
+                delay = loaderFonction();
             }
     
             setTimeout(() => {
@@ -91,26 +114,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     inputs[currentStep].classList.add('active');
                     toggleNextButtonVisibility();
                 } else {
-                    showLoader();
+                    // showLoader();
                     sendFormData();
+                    toggleBannerMessage();
                 }
                 if (shouldShowLoader) {
-                    hideLoader();
+                    hideChecklist();
                 }
-            }, delayDiv);
+            }, delay);
         }
     });
-    
 
     function showLoaderAndNextStep() {
-        showLoader();
-        const delay = randomDelay(); 
+        showChecklist();
+        delay = loaderFonction();
         setTimeout(() => {
-            nextText();
-            passToSucess(); 
-        }, delay / 2);
-        setTimeout(() => {
-            hideLoader(); 
+            hideChecklist(); 
             if (currentStep < inputs.length) {
                 inputs[currentStep].classList.add('active');
                 toggleNextButtonVisibility();
@@ -121,46 +140,108 @@ document.addEventListener('DOMContentLoaded', function () {
         }, delay);
     }   
 
+    function loaderFonction() {
+        const delay = randomDelay();
+        setTimeout(() => {
+            clearChecklist("checklist-container-Js-annimation");
+            const msg_loader = document.getElementById('msg_loader'); 
+            msg_loader.style.display = 'flex';
+            const checklist_container_Js_annimation = document.getElementById('checklist-container-Js-annimation'); 
+            checklist_container_Js_annimation.style.display = 'none';
+            nextText();
+            passToSucess();
+        }, delay - 3500);
+        return(delay);
+    }
+
     function showLoader() {
         const loaderContainer = document.getElementById('loader-container'); 
+        const msg_loader = document.getElementById('msg_loader'); 
+        const form = document.getElementById('form'); 
+
+        document.querySelectorAll('.active').forEach(el => {
+            el.style.display = 'none';
+            el.style.opacity = '0';
+        });
+        nextBtn.style.display = 'none';
+        
         loaderContainer.style.display = 'flex';
-        // document.querySelector("form").style.display = "none";
-        document.querySelector("form").style.visibility = "hidden";
+        msg_loader.style.display = 'flex';
         nextText();
         document.body.style.overflow = "hidden";
 
         setTimeout(() => {
             loaderContainer.style.opacity = '1';
-        }, 50);
+        }, 50);   
     }
 
     function hideLoader() {
         const loaderContainer = document.getElementById('loader-container'); 
+        const msg_loader = document.getElementById('msg_loader'); 
+        const form = document.getElementById('form'); 
+
+        msg_loader.style.display = 'none';
         loaderContainer.style.opacity = '0';
-        // document.querySelector("form").style.display = "flex";
-        document.querySelector("form").style.visibility = "visible";
+
         nextText();
         passToSucessNone();
 
         setTimeout(() => {
             loaderContainer.style.display = 'none';
             document.body.style.overflow = "auto";
+
+            document.querySelectorAll('.active').forEach(el => {
+            el.style.display = 'true';
+            el.style.opacity = '1';
+            });
         }, 200);
     }
+
+    function showChecklist() {
+        const loaderContainer = document.getElementById('loader-container'); 
+
+        document.querySelectorAll('.active').forEach(el => {
+            el.style.display = 'none';
+            el.style.opacity = '0';
+        });
+        nextBtn.style.display = 'none';
+        simulateChecklist("checklist-container-Js-annimation");
+        document.body.style.overflow = "hidden";
+
+        setTimeout(() => {
+            loaderContainer.style.opacity = '1';
+        }, 50);   
+    }
+
+    function hideChecklist() {
+        const msg_loader = document.getElementById('msg_loader'); 
+
+        msg_loader.style.display = 'none';
+
+        nextText();
+        passToSucessNone();
+        WichStep ++;
+
+        setTimeout(() => {
+            document.body.style.overflow = "auto";
+
+            document.querySelectorAll('.active').forEach(el => {
+            el.style.display = 'true';
+            el.style.opacity = '1';
+            });
+        }, 200);
+    }
+
 
     function passToSucess() {
         const loaderContainer = document.getElementById('loader-container');
         const okCircleFilled = document.getElementById('ok-circle-filled'); 
         loaderContainer.style.opacity = '0';
         loaderContainer.style.display = 'none';
-        setTimeout(() =>{
-            okCircleFilled.style.opacity = '1';
-            okCircleFilled.style.display = 'flex';
-            okCircleFilled.style.width = '100px';
-            okCircleFilled.style.height = '100px';
-
-        }, 200);
-        
+        okCircleFilled.style.opacity = '1';
+        okCircleFilled.style.display = 'flex';
+        okCircleFilled.style.width = '100px';
+        okCircleFilled.style.height = '100px';
     }
 
     function passToSucessNone() {
@@ -174,20 +255,32 @@ document.addEventListener('DOMContentLoaded', function () {
     function nextText(){
         const loaderMessages = [
             "",
-            "Recherche de vos aides régionales",
-            `Bonne nouvelle ! ${ville} est éligible`, // Utilisation correcte des backticks
+            `Bonne nouvelle! ${ville} est éligible à 1400€ d'aides`,
             "",
-            "Calcul des aides MaPrimeRénov",
             "Votre logement est éligible à MaPrimeRénov’",
             "",
-            "Envoi du formulaire en cours",
+            ""
+        ];
+
+        const loaderMessagesDevis = [
+            "",
+            `Bonne nouvelle! ${ville} est éligible à 1400€ d'aides`,
+            "",
+            "Eligible à l’installation d'une Pompe à chaleur",
             "",
             ""
         ];
         
         const loaderText = document.getElementById('loader-text');
         loaderCounter ++;
-        loaderText.textContent = loaderMessages[loaderCounter];
+
+        if (_aidesOrTravaux === "Aides"){
+            loaderText.textContent = loaderMessages[loaderCounter];
+        }; if(_aidesOrTravaux === "Travaux"){
+            loaderText.textContent = loaderMessagesDevis[loaderCounter];
+        }else{
+            loaderText.textContent = loaderMessages[loaderCounter];
+        }
     }
 
     function buttonText(){
@@ -203,10 +296,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displayStep(){
         const currentStepSync = currentStep + 1;
-        if(currentStepSync === 1 || currentStepSync === 5){
-            document.getElementById(`circle-${displayStepCounter}`)?.classList.remove('activeCircle');
-            displayStepCounter++;
-            document.getElementById(`circle-${displayStepCounter}`)?.classList.add('activeCircle');
+        if(currentStepSync === 2 || currentStepSync === 6){
+            setTimeout(() => {
+                document.getElementById(`circle-${displayStepCounter}`)?.classList.remove('activeCircle');
+                displayStepCounter++;
+                document.getElementById(`circle-${displayStepCounter}`)?.classList.add('activeCircle');
+            }, randomDelay());
         }else{
             return
         }
@@ -241,31 +336,54 @@ document.addEventListener('DOMContentLoaded', function () {
                 showError(input, 'Veuillez entrer un numéro de téléphone valide.');
                 isValid = false;
             }
-            if (currentStep === 0) {
+            if (currentStep === 1) {
                 ville = input.value;
                 console.log("Ville enregistrée :", ville);
             }
-            
+            if (input.required) {
+                if ((input.type === 'checkbox' || input.type === 'radio') && !input.checked) {
+                    showError(input, 'Ce champ est requis.');
+                    isValid = false;
+                } else if (input.type !== 'checkbox' && input.type !== 'radio' && !input.value.trim()) {
+                    showError(input, 'Ce champ est requis.');
+                    isValid = false;
+                }
+            }
+
         }
         return isValid;
     }
 
     function showError(input, message) {
         console.log(`Ajout d'une erreur pour ${input.name}: ${message}`);
-    
-        // Stocker l'ancien placeholder si ce n'est pas déjà fait
+
+        // === Cas particulier : checkbox ===
+        if (input.type === 'checkbox' && input.id === 'consent') {
+            const errorSpan = document.getElementById('consent-error');
+            if (errorSpan) {
+                errorSpan.style.display = 'inline';
+            }
+
+            // Supprimer le message d'erreur quand on coche la case
+            input.addEventListener('change', function clearCheckboxError() {
+                if (input.checked && errorSpan) {
+                    errorSpan.style.display = 'none';
+                    input.removeEventListener('change', clearCheckboxError);
+                }
+            });
+
+            return; // Ne pas exécuter le reste pour une checkbox
+        }
+
+        // === Pour les autres types de champs ===
         if (!input.dataset.placeholder) {
             input.dataset.placeholder = input.placeholder;
         }
-    
-        // Modifier le placeholder pour afficher l'erreur
+
         input.placeholder = message;
-        input.classList.add('error-input'); // Ajouter une classe pour le style
-    
-        // Vider la valeur pour forcer l'affichage du placeholder
+        input.classList.add('error-input');
         input.value = '';
-    
-        // Ajouter un écouteur pour restaurer le placeholder initial
+
         input.addEventListener('input', function restorePlaceholder() {
             input.placeholder = input.dataset.placeholder;
             input.classList.remove('error-input');
@@ -273,10 +391,163 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
     function toggleNextButtonVisibility() {
         const isSelectionStep = inputs[currentStep].classList.contains('selection-step');
         nextBtn.style.display = isSelectionStep ? 'none' : 'block';
     }
+
+    async function clearChecklist(containerId) {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = '';
+        }else return;
+    }
+
+
+
+    async function simulateChecklist(containerId) {
+        const checklist_container_Js_annimation = document.getElementById('checklist-container-Js-annimation'); 
+        checklist_container_Js_annimation.style.display = 'flex';
+        let steps = [];
+
+        if (WichStep === 1 && _aidesOrTravaux === "Aides") {
+            steps = [
+                "Vérification de la géolocalisation",
+                "Recherche des aides disponibles dans votre région"
+        ];} 
+        else if (WichStep === 1 && _aidesOrTravaux === "Travaux") {
+            steps = [
+                "Vérification de la géolocalisation",
+                "Recherche des entreprises RGE à proximité"
+        ];}
+        else if (WichStep === 2 && _aidesOrTravaux === "Aides") {
+            steps = [
+                "Analyse des caractéristiques de votre logement",
+                "Prise en compte de votre statut",
+                "Adaptation des aides selon votre profil"
+        ];} 
+        else if (WichStep === 2 && _aidesOrTravaux === "Travaux") {
+            steps = [
+                "Analyse des travaux envisagés",
+                "Vérification des conditions d’éligibilité",
+                "Sélection d’artisans RGE pour votre projet"
+        ];}
+        else if (WichStep === 3) {
+            steps = [
+                "Analyse de votre dossier",
+                "Calcul des aides disponibles",
+                "Sélection des professionnels RGE",
+                "Application des remises disponibles",
+                "Préparation de votre estimation personnalisée"
+            ];
+        }
+
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // Fonction utilitaire pour temporiser
+        const wait = (ms) => new Promise((res) => setTimeout(res, ms));
+
+        // Créer chaque étape séquentiellement
+        for (const stepText of steps) {
+            const item = document.createElement('div');
+            item.className = 'checklist-item-Js-annimation';
+
+            const loader = document.createElement('div');
+            loader.className = 'loader-checklist';
+
+            const text = document.createElement('span');
+            text.textContent = stepText;
+
+            item.appendChild(loader);
+            item.appendChild(text);
+            container.appendChild(item);
+
+            // Déclenche l’apparition (fade-in)
+            requestAnimationFrame(() => {
+            item.style.opacity = 1;
+            });
+
+            // Attendre pendant le "chargement"
+            await wait(700);
+
+            // Remplacer le loader par un check
+            const check = document.createElement('div');
+            check.className = 'check-Js-annimation';
+            check.textContent = '✔';
+            loader.replaceWith(check);
+            await wait(50);
+        }
+    }
+
+    function toggleBannerMessage() {
+        const bannerP = document.querySelector('.bannerMsg p');
+        const banner = document.querySelector('.bannerMsg');
+        if (!bannerP) return;
+        const currentMessage = messagesHeader[currentIndexHeader];
+        setTimeout(() => {
+            bannerP.textContent = currentMessage.text;
+            banner.style.backgroundColor = currentMessage.color;
+        }, currentMessage.time);
+
+        currentIndexHeader = (currentIndexHeader + 1) % messagesHeader.length;
+    }
+
+    
+    function aidesOrTravaux() {
+        const label = document.querySelector('label[for="nom"]');
+        setTimeout(() => {
+            if (_aidesOrTravaux === "Aides"){
+                label.textContent = "Recevoir le detail de mes aides\u00A0:";
+            }; if(_aidesOrTravaux === "Travaux"){
+                label.textContent = "Recevoir mon devis travaux\u00A0:";
+            }
+        }, randomDelay());
+    }
+
+    async function getVilleFromCodePostal(codePostal) {
+        try {
+            const response = await fetch(`https://geo.api.gouv.fr/communes?codePostal=${codePostal}&fields=nom&format=json`);
+            const data = await response.json();
+
+            const datalist = document.getElementById("listeVilles");
+            const villeInput = document.getElementById("Ville");
+
+            // Réinitialiser les options
+            datalist.innerHTML = "";
+
+            if (data.length > 0) {
+                data.forEach(ville => {
+                    const option = document.createElement("option");
+                    option.value = ville.nom;
+                    datalist.appendChild(option);
+                });
+
+            villeInput.value = "";
+            villeInput.placeholder = "Choisissez une ville";
+            villeInput.focus();
+
+            } else {
+                villeInput.value = "";
+            }
+        } catch (error) {
+            console.error("Erreur lors de la récupération des villes :", error);
+            document.getElementById("Ville").value = "";
+        }
+    }
+
+    document.getElementById("codePostal").addEventListener("input", function () {
+        const codePostal = this.value;
+
+        if (/^\d{5}$/.test(codePostal)) {
+            getVilleFromCodePostal(codePostal);
+        } else {
+            document.getElementById("Ville").value = "";
+            document.getElementById("listeVilles").innerHTML = "";
+        }
+    });
+
 
     function sendFormData() {
         const formData = new FormData(form);
@@ -284,7 +555,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append(key, answers[key]);
         });
 
-        fetch('https://techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d', { //techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d
+        fetch('https://techaka.app.n8n.cloud/webhook/8ed7e6eb-317b-42cf-9826-68b1680efa0d', { //cf
             method: 'POST',
             body: formData
         })
@@ -292,6 +563,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             console.log('Données envoyées:', data);
             finalizeForm();
+            sendS2SPixelIfNeeded();
         })
         .catch(error => {
             console.error('Erreur:', error);
@@ -300,42 +572,98 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function finalizeForm() {
-        setTimeout(() => {
-            hideLoader(); 
+        // setTimeout(() => {
+            // hideLoader(); 
+            simulateChecklist("checklist-container-Js-annimation");
             containerCricle.style.opacity = '0';
     
             inputs.forEach(input => input.style.opacity = '0');
             inputs.forEach(input => input.style.display = 'none');
             nextBtn.style.display = 'none';
             containerCricle.style.display = 'none';
-            successMessage.style.display = 'flex';
-            successMessage.style.opacity = '1';
-            console.log(answers);
+            // document.querySelector('.trustPilot').style.marginTop = '0';
             if (answers.step1 !== "Appartement" && answers.step2 !== "Locataire") {
                 console.log("validation");
                 fbq('track', 'Lead');
             }
-        }, randomDelay());
+
+            setTimeout(() => {
+                const checklistContainer = document.getElementById('checklist-container-Js-annimation');
+                checklistContainer.style.display = 'none';
+                checklistContainer.style.opacity = '0';
+
+                successMessage.style.display = 'flex';
+                successMessage.style.opacity = '1';
+                successMessage.style.marginTop = '48px';
+                console.log(answers);
+                // if (answers.step1 !== "Appartement" && answers.step2 !== "Locataire") {
+                //     console.log("validation");
+                //     fbq('track', 'Lead');
+                // }
+            }, 3750);
+        // }, randomDelay());
     }
     
     function finalizeFormError() {
-        setTimeout(() => {
-            hideLoader(); 
+        // setTimeout(() => {
+            // hideLoader(); 
+            simulateChecklist("checklist-container-Js-annimation");
             containerCricle.style.opacity = '0';
     
             inputs.forEach(input => input.style.opacity = '0');
             inputs.forEach(input => input.style.display = 'none');
             nextBtn.style.display = 'none';
             containerCricle.style.display = 'none';
-            errorMessage.style.display = 'flex';
-            errorMessage.style.opacity = '1';
-        }, randomDelay());
+            document.querySelector('.trustPilot').style.marginTop = '0';
+
+            setTimeout(() => {
+                const checklistContainer = document.getElementById('checklist-container-Js-annimation');
+                checklistContainer.style.display = 'none';
+                checklistContainer.style.opacity = '0';
+                    
+                errorMessage.style.display = 'flex';
+                errorMessage.style.opacity = '1';
+                errorMessage.style.marginTop = '48px';
+            }, 3750);
+
+        // }, 0);
     }
     
+    function sendS2SPixelIfNeeded() {
+        const params = new URLSearchParams(window.location.search);
+        const var_oc = params.get("var_oc");
+
+        if (!var_oc) return; // Si pas de var_oc, on ne fait rien
+        if (vous_etes === "Locataire") return;
+        if (type_bien === "Appartement") return;
+
+        fetch(`https://publisher.api.optincollect.com/s2s/lead.json?uid=auto&s2s=${encodeURIComponent(var_oc)}`)
+            .then(res => {
+            if (res.ok) {
+                console.log("Pixel S2S envoyé avec succès.");
+            } else {
+                console.warn("Erreur lors de l'envoi du pixel S2S :", res.status);
+            }
+            })
+            .catch(err => console.error("Erreur requête S2S :", err));
+    }
+
+    function modifierCircles() {
+        const circleItems = document.querySelectorAll('.containerCricle .circle-item');
+
+        if (circleItems.length >= 3) {
+            const firstText = circleItems[0].querySelector('.text');
+            if (firstText) {
+                firstText.textContent = 'Ville';
+            }
+            circleItems[1].style.display = 'flex';
+            circleItems[2].style.display = 'flex';
+        }
+    }
+
 
     function randomDelay() {
-        // return Math.random() * (7500 - 6000) + 6000;
-        return 3000;
+        return 6900;
     }
     toggleNextButtonVisibility();
 });

@@ -6,14 +6,16 @@
     border-radius: 8px;
     padding: 30px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 480px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* align-items: center;
-    justify-content: center; */
-    margin-top: 3vh;
+    align-items: center;
+    justify-content: center;
     min-height: 30vh;
+    z-index: 2 !important;
+    position: relative;
+    right: 40vw;
 }
 
 /* Conteneur du formulaire */
@@ -22,12 +24,14 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 32px;
+    padding-top: 0px;
     width: 100%;
+    min-width: 480px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     box-shadow: 0 0 10px 10px rgba(0, 94, 188, 0.3);
-    min-height: 340px;
+    min-height: 400px;
 }
 
 /* Barre de progression */
@@ -53,6 +57,12 @@
     display: none; /* Cache tous les champs par défaut */
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    border: 1px solid #96989b;       /* Bordure gris doux */
+    border-radius: 6px;             /* Bords arrondis */
+    transition: all 0.3s ease;
+    padding: 24px 8px;
+    min-height: 242px;
+    justify-content: center;
 }
 
 .input-container.active {
@@ -113,13 +123,14 @@ button{
 }
 
 .option-btn {
-    padding: 12px 20px;
+    padding: 12px 17px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 144px;
 }
 
 .option-btn:hover {
@@ -142,6 +153,8 @@ button{
     cursor: pointer;
     transition: background-color 0.3s ease;
     align-self: flex-end;
+
+    margin-top: 12px;
 }
 
 #nextBtn:hover {
@@ -167,24 +180,28 @@ button{
 
 
 .msg_loader {
-    position: fixed;
+    /* position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
+    transform: translate(-50%, -50%); */
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    pointer-events: none;
+
 }
 
 .msg_loader p{
     text-align: center;
     margin: 10px;
-    color: #0A7CFF;
-    font-size: 20px;
-    font-weight: 700;
-    width: 320px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
 }
 
 /* Conteneur du loader */
@@ -253,10 +270,11 @@ button{
 }
 
 .trustPilot{
-    width: 200px;
+    width: 192px !important;
+    height: 23px !important;
     align-self: center;
+    margin-top: auto;
 }
-
 
 
 
@@ -348,7 +366,8 @@ button{
 }
 
 .checkmark-animation img{
-    height: 100px;
+    height: 100px !important;
+    max-height: 100px !important;
     color: #0A7CFF;
 }
 
@@ -362,6 +381,7 @@ button{
     gap: 32px;
     max-width: 500px;
     width: max-content;
+    margin-top: 8px;
 }
 .circle-item {
     display: flex;
@@ -393,27 +413,157 @@ button{
     color: white !important;
 }
 
+/* 
+.containerCricle .circle-item:nth-child(2),
+.containerCricle .circle-item:nth-child(3) {
+    display: none;
+} */
+
+
+.bannerMsg {
+    position: relative;
+    left: -32px;
+    width: calc(100% + 64px);
+    height: 82px;
+    color: #ffffff;
+    /* background-color: #0a4081; */
+    background-color: #1264c1;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    transition: color 2s ease;
+}
+
+.bannerMsg p{
+    position: relative;
+    top: -4px;
+    font-size: 19px;
+    margin-bottom: 0%;
+}
+
+.bannerMsg h6{
+    position: relative;
+    top: -4px;
+    font-size: 16px;
+    margin: 0px;
+    margin-top: 2px;
+    font-weight: 300;
+}
+
+.checklist-item-Js-annimation {
+display: flex;
+align-items: center;
+font-family: Arial, sans-serif;
+font-size: 18px;
+margin-bottom: 15px;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+.loader-checklist {
+border: 3px solid #d3eaff;
+border-top: 3px solid #007bff;
+border-radius: 50%;
+width: 16px;
+height: 16px;
+animation: spin 1s linear infinite;
+margin-right: 10px;
+}
+.check-Js-annimation {
+color: green;
+font-weight: bold;
+font-size: 21px;
+margin-right: 10px;
+}
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+#checklist-container-Js-annimation{
+display: none;
+flex-direction: column;
+margin-top: 24px;
+align-self: center;/* min-height: 100px; */
+}
+
+.devisTravaux{
+    width: 150px !important;
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+}
+
+.consentDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .checklist-item-Js-annimation {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 464px) {
+    .consentDiv{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+}
 
 /* .inputInLineSpace {
     margin-top: 12px;
 } */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1492px) {
+    .Formulaire-container{
+        max-width: 380px;
+        z-index: 2 !important;
+        position: relative;
+        padding-right: 12px;
+        padding-left: 0px;
+    }
+
+    #form {
+        min-width: 380px;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    .Formulaire-container{
+        max-width: 340px;
+        z-index: 2 !important;
+        position: relative;
+        padding-right: 16px;
+    }
+
+    #form {
+        min-width: 340px;
+    }    
+}
+
+@media screen and (max-width: 946px) {
     .inputInLineSpace {
         margin-top: 12px;
     }
 
     #form{
+        min-width: 340px;
         margin: 0px;
-        padding: 24px;
+        padding: 0px 12px 32px 12px;
+        max-width: auto;
     }
 
     .Formulaire-container{
+        position: relative;
         margin-top: 0vh;
         max-width: 94%;
         padding: 0%;
-        padding-top: 32px;
-        padding-bottom: 48px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        right: 50vw;
+        right: 0%;
     }
 
     .floating_text{
@@ -450,15 +600,29 @@ button{
     }
 
 
-    /* .progress-bar-container {
-        width: calc(100% + 60px);
-        background-color: #e0e0e0a4;
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 0px;
-        margin-top: -30px;
-        margin-left: -30px;
-    } */
+    .trustPilot {
+        min-height: 0px !important;
+    }
+
+    .bannerMsg {
+        left: -12px;
+        width: calc(100% + 24px);
+    }
+
+    .bannerMsg p {
+        top: -2px;
+        font-size: 17px;
+    }
+
+    .bannerMsg h6{
+        top: -2px;
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    label {
+        font-size: 20px;
+    }
   }
 
   @media screen and (max-width: 372px) {
