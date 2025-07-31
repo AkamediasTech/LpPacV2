@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     const messagesHeader = [
-        { text: 'Vous étes éligible à Maprime renov', color: 'green', time: randomDelay() },
+        { text: 'Votre estimation est prête !', color: 'green', time: randomDelay() },
         { text: 'Nous vous contacterons sous 24 h', color: '#1264c1', time: 4000 }
     ];
     let currentIndexHeader = 0;
@@ -254,16 +254,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function nextText(){
         const loaderMessages = [
-            // "",
-            // "Recherche de vos aides régionales",
-            // `Bonne nouvelle ! ${ville} est éligible`,
-            // "",
-            // "Calcul des aides MaPrimeRénov",
-            // "Votre logement est éligible à MaPrimeRénov’",
-            // "",
-            // "Envoi du formulaire en cours",
-            // "",
-            // ""
             "",
             `Bonne nouvelle! ${ville} est éligible à 1400€ d'aides`,
             "",
@@ -271,10 +261,26 @@ document.addEventListener('DOMContentLoaded', function () {
             "",
             ""
         ];
+
+        const loaderMessagesDevis = [
+            "",
+            `Bonne nouvelle! ${ville} est éligible à 1400€ d'aides`,
+            "",
+            "Eligible à l’installation de panneaux solaires",
+            "",
+            ""
+        ];
         
         const loaderText = document.getElementById('loader-text');
         loaderCounter ++;
-        loaderText.textContent = loaderMessages[loaderCounter];
+
+        if (_aidesOrTravaux === "Aides"){
+            loaderText.textContent = loaderMessages[loaderCounter];
+        }; if(_aidesOrTravaux === "Travaux"){
+            loaderText.textContent = loaderMessagesDevis[loaderCounter];
+        }else{
+            loaderText.textContent = loaderMessages[loaderCounter];
+        }
     }
 
     function buttonText(){

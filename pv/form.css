@@ -281,7 +281,6 @@ button{
 
 
 
-
 /* Logo de validation et message de succès */
 .success-message {
     display: none;
@@ -437,14 +436,14 @@ button{
 .bannerMsg p{
     position: relative;
     top: -4px;
-    font-size: 20px;
+    font-size: 19px;
     margin-bottom: 0%;
 }
 
 .bannerMsg h6{
     position: relative;
     top: -4px;
-    font-size: 17px;
+    font-size: 16px;
     margin: 0px;
     margin-top: 2px;
     font-weight: 300;
@@ -495,6 +494,7 @@ align-self: center;/* min-height: 100px; */
     display: flex;
     justify-content: center;
     flex-direction: row;
+    margin-top: 8px;
 }
 
 @media (max-width: 768px) {
@@ -611,7 +611,7 @@ align-self: center;/* min-height: 100px; */
 
     .bannerMsg p {
         top: -2px;
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .bannerMsg h6{

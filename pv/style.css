@@ -1206,8 +1206,15 @@ th {
 
 .banner-text h1 {
     font-size: 28px;
-    margin-bottom: 24px;
     margin-top: 8px;
+    margin-bottom: -4px;
+}
+
+.banner-text p{
+    margin-top: 0%;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 24px;
 }
 
 .banner-text .highlight {
@@ -1298,6 +1305,22 @@ top: -2px;
     align-items: center;
     justify-content: center;
     width: 100vw;
+}
+
+.arrowdown {
+    display: none;
+    animation: floatUpDown 1.5s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes floatUpDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
 }
 
 
@@ -1665,6 +1688,10 @@ top: -2px;
         font-size: 24px;
     }
 
+    .banner-text p{
+        font-size: 16px;
+    }
+
     .banner-text li{
         font-size: 19px;
     }
@@ -1801,6 +1828,16 @@ top: -2px;
         font-size: 21px;
         line-height: 28px;
         text-align: center;
+
+        margin-bottom: 0%;
+    }
+
+    .banner-text p{
+        font-size: 15px;
+        line-height: 16px;
+        text-align: center;
+
+        margin-bottom: 8px;
     }
 
     .banner-text li{
@@ -1846,6 +1883,12 @@ top: -2px;
         display: none;
     }
 
+    .arrowdown {
+        display: flex;
+        position: relative;
+        top: 8px;
+        margin-bottom: 8px;
+    }
 }
 
 

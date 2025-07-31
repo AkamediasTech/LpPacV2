@@ -33,3 +33,4 @@ function updateDots() {
     if (activeDot) activeDot.classList.remove("focusDot");
     dots[index % dots.length].classList.add("focusDot");
 }
+
